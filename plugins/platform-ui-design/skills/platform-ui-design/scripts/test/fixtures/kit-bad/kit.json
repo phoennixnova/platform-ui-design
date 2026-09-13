@@ -1,0 +1,9 @@
+{
+  "platform": "ios",
+  "projectName": "Platform UI · iOS",
+  "defaultWidth": 720,
+  "foundations": [
+    { "id": "colors", "group": "Foundations", "title": "Colors", "subtitle": "x", "generated": true }
+  ],
+  "components": [ { "slot": "button" }, { "slot": "toggle" } ]
+}

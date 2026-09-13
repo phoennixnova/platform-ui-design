@@ -1,0 +1,74 @@
+import { test } from "node:test";
+import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
+import { createHash } from "node:crypto";
+import { existsSync, readFileSync, readdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+import { tmpdir } from "node:os";
+
+const here = dirname(fileURLToPath(import.meta.url));
+const SCRIPT = join(here, "..", "build-kit.mjs");
+const FX = join(here, "fixtures");
+const run = (args) => spawnSync(process.execPath, [SCRIPT, ...args], { encoding: "utf8" });
+const tmp = () => mkdtempSync(join(tmpdir(), "pud-kit-"));
+const sha = (buf) => createHash("sha256").update(buf).digest("hex");
+
+test("bad args exit 2", () => {
+  assert.equal(run(["--platform", "amiga", "--out", "x"]).status, 2);
+  assert.equal(run(["--out", "x"]).status, 2, "missing --platform");
+  const r = run(["--platform", "ios", "--kits", join(FX, "nope"), "--out", "x"]);
+  assert.equal(r.status, 2);
+  assert.match(r.stderr, /kit\.json/);
+});
+
+test("good kit builds: cards, manifest, exit 0", () => {
+  const out = join(tmp(), "kit-ios");
+  const r = run(["--platform", "ios", "--kits", join(FX, "kit-good"), "--out", out]);
+  assert.equal(r.status, 0, r.stderr);
+  assert.deepEqual(readdirSync(out).sort(), ["components", "foundations", "manifest.json"]);
+  assert.deepEqual(readdirSync(join(out, "components")), ["button.html"]);
+  assert.deepEqual(readdirSync(join(out, "foundations")).sort(), ["colors.html", "type.html"]);
+  const card = readFileSync(join(out, "components", "button.html"), "utf8");
+  assert.match(card.split("\n")[0], /^<!-- @dsCard group="Buttons" name="Buttons" subtitle="Filled" width="720" -->$/);
+  assert.match(card, /\.ios-btn \{ min-height: 44px;/);
+  const manifest = JSON.parse(readFileSync(join(out, "manifest.json"), "utf8"));
+  assert.deepEqual(Object.keys(manifest), ["components/button.html", "foundations/colors.html", "foundations/type.html"]);
+  for (const [p, h] of Object.entries(manifest))
+    assert.equal(h, sha(readFileSync(join(out, p))), p);
+  // no color literal in the built component outside the generated <style> token block
+  const afterStyle = card.slice(card.indexOf("</style>"));
+  assert.doesNotMatch(afterStyle, /#[0-9a-fA-F]{6}\b/);
+  rmSync(dirname(out), { recursive: true, force: true });
+});
+
+test("bad kit: lint findings on stderr, exit 1, nothing written", () => {
+  const out = join(tmp(), "kit-ios");
+  const r = run(["--platform", "ios", "--kits", join(FX, "kit-bad"), "--out", out]);
+  assert.equal(r.status, 1);
+  for (const rule of ["color-literal", "font-size", "emoji", "img-tag", "slot-missing"])
+    assert.match(r.stderr, new RegExp(rule), rule);
+  assert.match(r.stderr, /components\/button\.html:2: color-literal/);
+  assert.equal(existsSync(out), false);
+  rmSync(dirname(out), { recursive: true, force: true });
+});
+
+test("--check writes nothing and exits 0 on a good kit", () => {
+  const out = join(tmp(), "kit-ios");
+  const r = run(["--platform", "ios", "--kits", join(FX, "kit-good"), "--out", out, "--check"]);
+  assert.equal(r.status, 0, r.stderr);
+  assert.equal(existsSync(out), false);
+  assert.match(r.stdout, /render check skipped|render check: 0 errors/);
+  rmSync(dirname(out), { recursive: true, force: true });
+});
+
+test("rebuild replaces the bundle atomically (no stale files)", () => {
+  const out = join(tmp(), "kit-ios");
+  run(["--platform", "ios", "--kits", join(FX, "kit-good"), "--out", out]);
+  const stale = join(out, "components", "stale.html");
+  writeFileSync(stale, "stale");
+  const r = run(["--platform", "ios", "--kits", join(FX, "kit-good"), "--out", out]);
+  assert.equal(r.status, 0, r.stderr);
+  assert.equal(existsSync(stale), false);
+  rmSync(dirname(out), { recursive: true, force: true });
+});
