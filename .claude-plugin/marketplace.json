@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "btwelch-plugins",
+  "description": "Plugins by Brian Welch",
+  "owner": {
+    "name": "Brian Welch",
+    "url": "https://github.com/btwelch"
+  },
+  "plugins": [
+    {
+      "name": "platform-ui-design",
+      "displayName": "Platform UI Design",
+      "description": "Design and build native-feeling GUIs that follow Apple's Human Interface Guidelines, Android's Material 3 guidance, and Microsoft's Fluent design — native code, cross-platform code, specs, audits, and Claude Design mockups.",
+      "version": "0.1.0",
+      "source": "./plugins/platform-ui-design",
+      "category": "development",
+      "license": "Apache-2.0",
+      "author": {
+        "name": "Brian Welch"
+      },
+      "keywords": [
+        "ui",
+        "ux",
+        "design",
+        "human-interface-guidelines",
+        "material-design",
+        "fluent",
+        "ios",
+        "android",
+        "windows",
+        "swiftui",
+        "jetpack-compose",
+        "winui",
+        "accessibility"
+      ]
+    }
+  ]
+}

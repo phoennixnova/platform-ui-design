@@ -1,0 +1,114 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  structure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: marketplace.json is valid and complete
+        run: |
+          jq -e '.name and .owner.name and (.plugins | length > 0)' \
+            .claude-plugin/marketplace.json > /dev/null
+          jq -r '.plugins[].source' .claude-plugin/marketplace.json | while read -r src; do
+            case "$src" in
+              ./*) ;;
+              *) echo "::error::source must start with ./ — got '$src'"; exit 1 ;;
+            esac
+            test -f "$src/.claude-plugin/plugin.json" \
+              || { echo "::error::missing $src/.claude-plugin/plugin.json"; exit 1; }
+            jq -e '.name' "$src/.claude-plugin/plugin.json" > /dev/null \
+              || { echo "::error::$src/.claude-plugin/plugin.json has no name"; exit 1; }
+          done
+
+      - name: plugin name is kebab-case
+        run: |
+          jq -r '.plugins[].name' .claude-plugin/marketplace.json | while read -r n; do
+            echo "$n" | grep -Eq '^[a-z0-9]+(-[a-z0-9]+)*$' \
+              || { echo "::error::plugin name not kebab-case: $n"; exit 1; }
+          done
+
+      - name: versions match between marketplace.json and plugin.json
+        run: |
+          jq -r '.plugins[] | "\(.source) \(.version // "")"' .claude-plugin/marketplace.json |
+          while read -r src ver; do
+            [ -z "$ver" ] && continue
+            pv=$(jq -r '.version // ""' "$src/.claude-plugin/plugin.json")
+            [ "$pv" = "$ver" ] \
+              || { echo "::error::version mismatch for $src: marketplace=$ver plugin=$pv"; exit 1; }
+          done
+
+      - name: every skill has SKILL.md with frontmatter
+        run: |
+          fail=0
+          for d in plugins/*/skills/*/; do
+            f="${d}SKILL.md"
+            test -f "$f" || { echo "::error::missing $f"; fail=1; continue; }
+            head -1 "$f" | grep -q '^---$' || { echo "::error::$f has no frontmatter"; fail=1; }
+            grep -q '^name:' "$f" || { echo "::error::$f frontmatter has no name"; fail=1; }
+            grep -q '^description:' "$f" || { echo "::error::$f frontmatter has no description"; fail=1; }
+          done
+          exit $fail
+
+      - name: no vendor artwork committed
+        run: |
+          if find plugins -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.svg' \
+               -o -iname '*.ttf' -o -iname '*.otf' -o -iname '*.woff*' \) | grep .; then
+            echo "::error::binary/font/image assets are not allowed in plugins/ — see CONTRIBUTING.md"
+            exit 1
+          fi
+
+  generator:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: artboard frame sizes match canvas.json
+        run: |
+          S=plugins/platform-ui-design/skills/platform-ui-design/scripts/make-artboards.mjs
+          for p in ios android windows both; do
+            node "$S" --platform "$p" --screens Main,Detail --out "/tmp/ab-$p"
+            node -e '
+              const fs = require("fs"), d = process.argv[1];
+              const c = JSON.parse(fs.readFileSync(d + "/canvas.json", "utf8"));
+              let bad = 0;
+              for (const a of c.artboards) {
+                const h = fs.readFileSync(d + "/" + a.file, "utf8");
+                const m = h.match(/width: (\d+)px; height: (\d+)px; position: relative/);
+                if (!m || +m[1] !== a.w || +m[2] !== a.h) {
+                  console.error("frame/canvas mismatch: " + a.file); bad = 1;
+                }
+                if (!h.includes(`<script src="./support.js"></script>`)) {
+                  console.error("missing support.js line: " + a.file); bad = 1;
+                }
+              }
+              if (!c.artboards.some(a => a.file === "Main.dc.html")) {
+                console.error("no Main.dc.html artboard"); bad = 1;
+              }
+              process.exit(bad);
+            ' "/tmp/ab-$p"
+          done
+
+      - name: token dumps parse
+        run: |
+          S=plugins/platform-ui-design/skills/platform-ui-design/scripts/make-artboards.mjs
+          for p in ios android windows; do
+            node "$S" --tokens "$p" --format json | jq -e '.light and .dark and .type' > /dev/null
+            node "$S" --tokens "$p" --format css | grep -q '^:root {'
+          done
+
+      - name: bad --device is rejected
+        run: |
+          S=plugins/platform-ui-design/skills/platform-ui-design/scripts/make-artboards.mjs
+          if node "$S" --platform ios --device nonsense --screens Main --out /tmp/ab-bad; then
+            echo "::error::expected failure for invalid --device"; exit 1
+          fi

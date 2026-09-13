@@ -1,0 +1,41 @@
+platform-ui-design
+Copyright 2026 Brian Welch
+
+This product includes software and documentation developed by Brian Welch,
+licensed under the Apache License, Version 2.0 (see LICENSE).
+
+The reference library in plugins/platform-ui-design/skills/platform-ui-design/references/
+summarizes publicly published design documentation from Apple, Google and Microsoft.
+The copyright in that underlying documentation belongs to its respective owners, not to
+this project. See ATTRIBUTION.md for the full source list, the license governing each
+source, and the attribution notices those licenses require.
+
+Third-party attributions required by license:
+
+  Portions are modifications based on work created and shared by the Android Open Source
+  Project and used according to terms described in the Creative Commons 2.5 Attribution
+  License. https://developer.android.com/license
+
+  Portions are derived from androidx source code, Copyright The Android Open Source
+  Project, licensed under the Apache License, Version 2.0. Values were extracted and
+  reformatted by this project. https://github.com/androidx/androidx
+
+  Portions are adapted from Microsoft documentation, Copyright (c) Microsoft Corporation,
+  licensed under the Creative Commons Attribution 4.0 International License. Changes were
+  made. https://github.com/MicrosoftDocs/windows-dev-docs
+
+  Portions summarize Web Content Accessibility Guidelines (WCAG) 2.2, Copyright World Wide
+  Web Consortium (https://www.w3.org/), used under the W3C Document License.
+  https://www.w3.org/copyright/document-license/
+
+  Portions summarize Flutter documentation (Copyright Google LLC, CC BY 4.0) and React
+  Native documentation (Copyright Meta Platforms, Inc., CC BY 4.0).
+
+Apple documentation is NOT licensed to this project and is NOT covered by the Apache
+License above. Apple's Human Interface Guidelines and developer documentation are
+Copyright Apple Inc., all rights reserved. This project restates factual specifications
+from that documentation in its own words and links to the originals; it does not
+redistribute Apple's text.
+
+This project is an independent, unofficial reference. It is not affiliated with,
+sponsored by, or endorsed by Apple Inc., Google LLC, or Microsoft Corporation.
