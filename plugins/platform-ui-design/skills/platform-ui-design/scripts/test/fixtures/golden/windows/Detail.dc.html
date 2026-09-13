@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root {
+      --win-text-primary: rgba(0,0,0,0.8956);
+      --win-text-secondary: rgba(0,0,0,0.6063);
+      --win-text-tertiary: rgba(0,0,0,0.4458);
+      --win-text-disabled: rgba(0,0,0,0.3614);
+      --win-bg-base: #F3F3F3;
+      --win-bg-layer: rgba(255,255,255,0.50);
+      --win-bg-mica: #F3F3F3;
+      --win-card: rgba(255,255,255,0.70);
+      --win-card-secondary: rgba(246,246,246,0.50);
+      --win-subtle-secondary: rgba(0,0,0,0.0373);
+      --win-stroke-default: rgba(0,0,0,0.0578);
+      --win-divider: rgba(0,0,0,0.0803);
+      --win-success: #0F7B0F;
+      --win-caution: #9D5D00;
+      --win-critical: #C42B1C;
+      --win-font: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+    }
+    .theme-dark {
+      --win-text-primary: #FFFFFF;
+      --win-text-secondary: rgba(255,255,255,0.786);
+      --win-text-tertiary: rgba(255,255,255,0.5442);
+      --win-text-disabled: rgba(255,255,255,0.3628);
+      --win-bg-base: #202020;
+      --win-bg-layer: rgba(58,58,58,0.30);
+      --win-bg-mica: #202020;
+      --win-card: rgba(255,255,255,0.0512);
+      --win-card-secondary: rgba(255,255,255,0.0326);
+      --win-subtle-secondary: rgba(255,255,255,0.0605);
+      --win-stroke-default: rgba(255,255,255,0.0698);
+      --win-divider: rgba(255,255,255,0.0837);
+      --win-success: #6CCB5F;
+      --win-caution: #FCE100;
+      --win-critical: #FF99A4;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--win-font); -webkit-font-smoothing: antialiased; }
+    a { color: #0067C0; text-decoration: none; }
+    a:hover { color: #60CDFF; text-decoration: underline; }
+    .win-caption { font-size: 12px; line-height: 16px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .win-body { font-size: 14px; line-height: 20px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .win-body-strong { font-size: 14px; line-height: 20px; font-weight: 600; letter-spacing: 0; margin: 0; }
+    .win-body-large { font-size: 18px; line-height: 24px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .win-subtitle { font-size: 20px; line-height: 28px; font-weight: 600; letter-spacing: 0; margin: 0; }
+    .win-title { font-size: 28px; line-height: 36px; font-weight: 600; letter-spacing: 0; margin: 0; }
+    .win-title-large { font-size: 40px; line-height: 52px; font-weight: 600; letter-spacing: 0; margin: 0; }
+    .win-display { font-size: 68px; line-height: 92px; font-weight: 600; letter-spacing: 0; margin: 0; }
+  </style>
+</helmet>
+<div class="{{themeClass}}" style="width: 1440px; height: 900px; position: relative; overflow: hidden; background: var(--win-bg-base); color: var(--win-text-primary); display: flex; flex-direction: column; font-family: var(--win-font);">
+
+  <!-- Title bar 32px reserved. Do not draw window controls; the shell owns them. -->
+  <div style="height: 32px; flex-shrink: 0;"></div>
+
+      <!-- Top bar · command bar 48px -->
+      <div style="height: 48px; flex-shrink: 0; display: flex; align-items: center; gap: 8px; padding: 0 16px; background: var(--win-bg-mica); border-bottom: 1px solid var(--win-divider); box-sizing: border-box;">
+        <div style="width: 24px; height: 24px; border-radius: 6px; background: var(--win-text-secondary); opacity: 0.4;"></div>
+        <span class="win-subtitle" style="color: var(--win-text-primary); flex-grow: 1;">Detail</span>
+        <div style="width: 24px; height: 24px; border-radius: 6px; background: {{accent}};"></div>
+      </div>
+  <!-- Content · side margin 24px · scrolls under nothing -->
+  <div style="flex-grow: 1; overflow: hidden; padding: 12px 24px 0;">
+    <div style="display: flex; flex-direction: column; gap: 0;">
+        <div style="display: flex; align-items: center; gap: 16px; min-height: 40px; padding: 12px 0; border-bottom: 1px solid var(--win-divider);">
+          <div style="width: 40px; height: 40px; border-radius: 4px; background: var(--win-text-secondary); opacity: 0.25; flex-shrink: 0;"></div>
+          <div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1;">
+            <span class="win-body" style="color: var(--win-text-primary);">Row item 1</span>
+            <span class="win-caption" style="color: var(--win-text-secondary);">Replace with real content</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px; min-height: 40px; padding: 12px 0; border-bottom: 1px solid var(--win-divider);">
+          <div style="width: 40px; height: 40px; border-radius: 4px; background: var(--win-text-secondary); opacity: 0.25; flex-shrink: 0;"></div>
+          <div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1;">
+            <span class="win-body" style="color: var(--win-text-primary);">Row item 2</span>
+            <span class="win-caption" style="color: var(--win-text-secondary);">Replace with real content</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px; min-height: 40px; padding: 12px 0; border-bottom: 1px solid var(--win-divider);">
+          <div style="width: 40px; height: 40px; border-radius: 4px; background: var(--win-text-secondary); opacity: 0.25; flex-shrink: 0;"></div>
+          <div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1;">
+            <span class="win-body" style="color: var(--win-text-primary);">Row item 3</span>
+            <span class="win-caption" style="color: var(--win-text-secondary);">Replace with real content</span>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Bottom safe-area / gesture inset 0dp -->
+  <div style="height: 0px; flex-shrink: 0; background: var(--win-bg-base);"></div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"dark":{"editor":"boolean","default":false,"section":"Theme"},"accent":{"editor":"color","default":"#0067C0","section":"Theme"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const dark = this.props.dark ?? false;
+    return {
+      themeClass: dark ? 'theme-dark' : '',
+      accent: this.props.accent ?? (dark ? '#60CDFF' : '#0067C0'),
+    };
+  }
+}
+</script>
+</body>
+</html>

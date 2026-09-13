@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root {
+      --ios-label: #000000;
+      --ios-label-secondary: rgba(60,60,67,0.60);
+      --ios-label-tertiary: rgba(60,60,67,0.30);
+      --ios-bg: #FFFFFF;
+      --ios-bg-secondary: #F2F2F7;
+      --ios-bg-grouped: #F2F2F7;
+      --ios-bg-grouped-secondary: #FFFFFF;
+      --ios-separator: rgba(60,60,67,0.29);
+      --ios-separator-opaque: #C6C6C8;
+      --ios-fill: rgba(120,120,128,0.20);
+      --ios-fill-secondary: rgba(120,120,128,0.16);
+      --ios-red: #FF3B30;
+      --ios-green: #34C759;
+      --ios-orange: #FF9500;
+      --ios-gray: #8E8E93;
+      --ios-chrome: rgba(249,249,249,0.94);
+      --ios-font: -apple-system, "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
+    }
+    .theme-dark {
+      --ios-label: #FFFFFF;
+      --ios-label-secondary: rgba(235,235,245,0.60);
+      --ios-label-tertiary: rgba(235,235,245,0.30);
+      --ios-bg: #000000;
+      --ios-bg-secondary: #1C1C1E;
+      --ios-bg-grouped: #000000;
+      --ios-bg-grouped-secondary: #1C1C1E;
+      --ios-separator: rgba(84,84,88,0.65);
+      --ios-separator-opaque: #38383A;
+      --ios-fill: rgba(120,120,128,0.36);
+      --ios-fill-secondary: rgba(120,120,128,0.32);
+      --ios-red: #FF453A;
+      --ios-green: #30D158;
+      --ios-orange: #FF9F0A;
+      --ios-gray: #8E8E93;
+      --ios-chrome: rgba(30,30,30,0.94);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--ios-font); -webkit-font-smoothing: antialiased; }
+    a { color: #007AFF; text-decoration: none; }
+    a:hover { color: #0A84FF; text-decoration: underline; }
+    .ios-large-title { font-size: 34px; line-height: 41px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .ios-title1 { font-size: 28px; line-height: 34px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .ios-title2 { font-size: 22px; line-height: 28px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .ios-title3 { font-size: 20px; line-height: 25px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .ios-headline { font-size: 17px; line-height: 22px; font-weight: 600; letter-spacing: 0; margin: 0; }
+    .ios-body { font-size: 17px; line-height: 22px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .ios-callout { font-size: 16px; line-height: 21px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .ios-subheadline { font-size: 15px; line-height: 20px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .ios-footnote { font-size: 13px; line-height: 18px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .ios-caption1 { font-size: 12px; line-height: 16px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .ios-caption2 { font-size: 11px; line-height: 13px; font-weight: 400; letter-spacing: 0; margin: 0; }
+  </style>
+</helmet>
+<div class="{{themeClass}}" style="width: 820px; height: 1180px; position: relative; overflow: hidden; background: var(--ios-bg); color: var(--ios-label); display: flex; flex-direction: column; font-family: var(--ios-font);">
+
+  <!-- Safe-area inset 24pt reserved. DO NOT draw a status bar here — the OS renders it on top. -->
+  <div style="height: 24px; flex-shrink: 0;"></div>
+
+  <!-- Content · side margin 20pt · scrolls under nothing -->
+  <div style="flex-grow: 1; overflow: hidden; padding: 8px 20px 0;">
+    <div style="display: flex; flex-direction: column; gap: 0;">
+        <div style="display: flex; align-items: center; gap: 16px; min-height: 44px; padding: 12px 0; border-bottom: 1px solid var(--ios-separator);">
+          <div style="width: 40px; height: 40px; border-radius: 10px; background: var(--ios-label-secondary); opacity: 0.25; flex-shrink: 0;"></div>
+          <div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1;">
+            <span class="ios-body" style="color: var(--ios-label);">Row item 1</span>
+            <span class="ios-footnote" style="color: var(--ios-label-secondary);">Replace with real content</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px; min-height: 44px; padding: 12px 0; border-bottom: 1px solid var(--ios-separator);">
+          <div style="width: 40px; height: 40px; border-radius: 10px; background: var(--ios-label-secondary); opacity: 0.25; flex-shrink: 0;"></div>
+          <div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1;">
+            <span class="ios-body" style="color: var(--ios-label);">Row item 2</span>
+            <span class="ios-footnote" style="color: var(--ios-label-secondary);">Replace with real content</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px; min-height: 44px; padding: 12px 0; border-bottom: 1px solid var(--ios-separator);">
+          <div style="width: 40px; height: 40px; border-radius: 10px; background: var(--ios-label-secondary); opacity: 0.25; flex-shrink: 0;"></div>
+          <div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1;">
+            <span class="ios-body" style="color: var(--ios-label);">Row item 3</span>
+            <span class="ios-footnote" style="color: var(--ios-label-secondary);">Replace with real content</span>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Bottom safe-area / gesture inset 20pt -->
+  <div style="height: 20px; flex-shrink: 0; background: var(--ios-bg);"></div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"dark":{"editor":"boolean","default":false,"section":"Theme"},"accent":{"editor":"color","default":"#007AFF","section":"Theme"},"$preview":{"width":820,"height":1180}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const dark = this.props.dark ?? false;
+    return {
+      themeClass: dark ? 'theme-dark' : '',
+      accent: this.props.accent ?? (dark ? '#0A84FF' : '#007AFF'),
+    };
+  }
+}
+</script>
+</body>
+</html>

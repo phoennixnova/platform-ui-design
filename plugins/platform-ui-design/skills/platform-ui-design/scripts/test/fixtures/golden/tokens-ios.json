@@ -1,0 +1,122 @@
+{
+  "platform": "ios",
+  "prefix": "ios",
+  "font": "-apple-system, \"SF Pro Text\", \"Helvetica Neue\", system-ui, sans-serif",
+  "light": {
+    "label": "#000000",
+    "label-secondary": "rgba(60,60,67,0.60)",
+    "label-tertiary": "rgba(60,60,67,0.30)",
+    "bg": "#FFFFFF",
+    "bg-secondary": "#F2F2F7",
+    "bg-grouped": "#F2F2F7",
+    "bg-grouped-secondary": "#FFFFFF",
+    "separator": "rgba(60,60,67,0.29)",
+    "separator-opaque": "#C6C6C8",
+    "fill": "rgba(120,120,128,0.20)",
+    "fill-secondary": "rgba(120,120,128,0.16)",
+    "red": "#FF3B30",
+    "green": "#34C759",
+    "orange": "#FF9500",
+    "gray": "#8E8E93",
+    "chrome": "rgba(249,249,249,0.94)"
+  },
+  "dark": {
+    "label": "#FFFFFF",
+    "label-secondary": "rgba(235,235,245,0.60)",
+    "label-tertiary": "rgba(235,235,245,0.30)",
+    "bg": "#000000",
+    "bg-secondary": "#1C1C1E",
+    "bg-grouped": "#000000",
+    "bg-grouped-secondary": "#1C1C1E",
+    "separator": "rgba(84,84,88,0.65)",
+    "separator-opaque": "#38383A",
+    "fill": "rgba(120,120,128,0.36)",
+    "fill-secondary": "rgba(120,120,128,0.32)",
+    "red": "#FF453A",
+    "green": "#30D158",
+    "orange": "#FF9F0A",
+    "gray": "#8E8E93",
+    "chrome": "rgba(30,30,30,0.94)"
+  },
+  "accent": {
+    "light": "#007AFF",
+    "dark": "#0A84FF"
+  },
+  "type": [
+    {
+      "name": "large-title",
+      "size": 34,
+      "lineHeight": 41,
+      "weight": 400
+    },
+    {
+      "name": "title1",
+      "size": 28,
+      "lineHeight": 34,
+      "weight": 400
+    },
+    {
+      "name": "title2",
+      "size": 22,
+      "lineHeight": 28,
+      "weight": 400
+    },
+    {
+      "name": "title3",
+      "size": 20,
+      "lineHeight": 25,
+      "weight": 400
+    },
+    {
+      "name": "headline",
+      "size": 17,
+      "lineHeight": 22,
+      "weight": 600
+    },
+    {
+      "name": "body",
+      "size": 17,
+      "lineHeight": 22,
+      "weight": 400
+    },
+    {
+      "name": "callout",
+      "size": 16,
+      "lineHeight": 21,
+      "weight": 400
+    },
+    {
+      "name": "subheadline",
+      "size": 15,
+      "lineHeight": 20,
+      "weight": 400
+    },
+    {
+      "name": "footnote",
+      "size": 13,
+      "lineHeight": 18,
+      "weight": 400
+    },
+    {
+      "name": "caption1",
+      "size": 12,
+      "lineHeight": 16,
+      "weight": 400
+    },
+    {
+      "name": "caption2",
+      "size": 11,
+      "lineHeight": 13,
+      "weight": 400
+    }
+  ],
+  "chrome": {
+    "topBar": 44,
+    "topBarLarge": 96,
+    "bottomNav": 49,
+    "margin": 16,
+    "marginRegular": 20,
+    "row": 44,
+    "radius": 10
+  }
+}

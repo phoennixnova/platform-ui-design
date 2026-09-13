@@ -1,0 +1,48 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 393,
+      "h": 852,
+      "title": "Main · iPhone 15/16 base"
+    },
+    {
+      "file": "DetailIOS.dc.html",
+      "x": 513,
+      "y": 0,
+      "w": 393,
+      "h": 852,
+      "title": "Detail · iPhone 15/16 base"
+    },
+    {
+      "file": "MainAndroid.dc.html",
+      "x": 0,
+      "y": 1075,
+      "w": 412,
+      "h": 915,
+      "title": "Main · Pixel 8/9 class"
+    },
+    {
+      "file": "DetailAndroid.dc.html",
+      "x": 532,
+      "y": 1075,
+      "w": 412,
+      "h": 915,
+      "title": "Detail · Pixel 8/9 class"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "platform-note",
+      "x": 0,
+      "y": -110,
+      "w": 520,
+      "text": "Scaffold from platform-ui-design.\nMetrics are platform-correct — keep them.\nTokens are CSS custom properties; restyle via the theme, not literal hex.\nNo status bars or keyboards are drawn: the OS renders those on top."
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  }
+}

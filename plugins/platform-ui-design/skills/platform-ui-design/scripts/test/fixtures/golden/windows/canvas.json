@@ -1,0 +1,32 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "Main · Windows window, large"
+    },
+    {
+      "file": "Detail.dc.html",
+      "x": 1560,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "Detail · Windows window, large"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "platform-note",
+      "x": 0,
+      "y": -110,
+      "w": 520,
+      "text": "Scaffold from platform-ui-design.\nMetrics are platform-correct — keep them.\nTokens are CSS custom properties; restyle via the theme, not literal hex.\nNo status bars or keyboards are drawn: the OS renders those on top."
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  }
+}

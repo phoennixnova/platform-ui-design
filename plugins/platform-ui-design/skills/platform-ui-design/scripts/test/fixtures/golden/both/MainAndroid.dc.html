@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    :root {
+      --md-primary: #6750A4;
+      --md-on-primary: #FFFFFF;
+      --md-primary-container: #EADDFF;
+      --md-on-primary-container: #21005D;
+      --md-secondary: #625B71;
+      --md-on-secondary: #FFFFFF;
+      --md-secondary-container: #E8DEF8;
+      --md-on-secondary-container: #1D192B;
+      --md-tertiary: #7D5260;
+      --md-on-tertiary: #FFFFFF;
+      --md-tertiary-container: #FFD8E4;
+      --md-on-tertiary-container: #31111D;
+      --md-error: #B3261E;
+      --md-on-error: #FFFFFF;
+      --md-error-container: #F9DEDC;
+      --md-on-error-container: #410E0B;
+      --md-surface: #FEF7FF;
+      --md-on-surface: #1D1B20;
+      --md-on-surface-variant: #49454F;
+      --md-surface-container-lowest: #FFFFFF;
+      --md-surface-container-low: #F7F2FA;
+      --md-surface-container: #F3EDF7;
+      --md-surface-container-high: #ECE6F0;
+      --md-surface-container-highest: #E6E0E9;
+      --md-outline: #79747E;
+      --md-outline-variant: #CAC4D0;
+      --md-inverse-surface: #322F35;
+      --md-inverse-on-surface: #F5EFF7;
+      --md-scrim: rgba(0,0,0,0.32);
+      --md-font: Roboto, "Roboto Flex", system-ui, -apple-system, sans-serif;
+    }
+    .theme-dark {
+      --md-primary: #D0BCFF;
+      --md-on-primary: #381E72;
+      --md-primary-container: #4F378B;
+      --md-on-primary-container: #EADDFF;
+      --md-secondary: #CCC2DC;
+      --md-on-secondary: #332D41;
+      --md-secondary-container: #4A4458;
+      --md-on-secondary-container: #E8DEF8;
+      --md-tertiary: #EFB8C8;
+      --md-on-tertiary: #492532;
+      --md-tertiary-container: #633B48;
+      --md-on-tertiary-container: #FFD8E4;
+      --md-error: #F2B8B5;
+      --md-on-error: #601410;
+      --md-error-container: #8C1D18;
+      --md-on-error-container: #F9DEDC;
+      --md-surface: #141218;
+      --md-on-surface: #E6E0E9;
+      --md-on-surface-variant: #CAC4D0;
+      --md-surface-container-lowest: #0F0D13;
+      --md-surface-container-low: #1D1B20;
+      --md-surface-container: #211F26;
+      --md-surface-container-high: #2B2930;
+      --md-surface-container-highest: #36343B;
+      --md-outline: #938F99;
+      --md-outline-variant: #49454F;
+      --md-inverse-surface: #E6E0E9;
+      --md-inverse-on-surface: #322F35;
+      --md-scrim: rgba(0,0,0,0.32);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--md-font); -webkit-font-smoothing: antialiased; }
+    a { color: #6750A4; text-decoration: none; }
+    a:hover { color: #D0BCFF; text-decoration: underline; }
+    .md-display-large { font-size: 57px; line-height: 64px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .md-display-medium { font-size: 45px; line-height: 52px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .md-display-small { font-size: 36px; line-height: 44px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .md-headline-large { font-size: 32px; line-height: 40px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .md-headline-medium { font-size: 28px; line-height: 36px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .md-headline-small { font-size: 24px; line-height: 32px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .md-title-large { font-size: 22px; line-height: 28px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .md-title-medium { font-size: 16px; line-height: 24px; font-weight: 500; letter-spacing: 0; margin: 0; }
+    .md-title-small { font-size: 14px; line-height: 20px; font-weight: 500; letter-spacing: 0; margin: 0; }
+    .md-body-large { font-size: 16px; line-height: 24px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .md-body-medium { font-size: 14px; line-height: 20px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .md-body-small { font-size: 12px; line-height: 16px; font-weight: 400; letter-spacing: 0; margin: 0; }
+    .md-label-large { font-size: 14px; line-height: 20px; font-weight: 500; letter-spacing: 0; margin: 0; }
+    .md-label-medium { font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0; margin: 0; }
+    .md-label-small { font-size: 11px; line-height: 16px; font-weight: 500; letter-spacing: 0; margin: 0; }
+  </style>
+</helmet>
+<div class="{{themeClass}}" style="width: 412px; height: 915px; position: relative; overflow: hidden; background: var(--md-surface); color: var(--md-on-surface); display: flex; flex-direction: column; font-family: var(--md-font);">
+
+  <!-- Safe-area inset 24pt reserved. DO NOT draw a status bar here — the OS renders it on top. -->
+  <div style="height: 24px; flex-shrink: 0;"></div>
+
+      <!-- Top bar · small top app bar 64dp -->
+      <div style="height: 64px; flex-shrink: 0; display: flex; align-items: center; gap: 24px; padding: 0 16px; background: var(--md-surface-container); border-bottom: 1px solid var(--md-outline-variant); box-sizing: border-box;">
+        <div style="width: 24px; height: 24px; border-radius: 6px; background: var(--md-on-surface-variant); opacity: 0.4;"></div>
+        <span class="md-title-large" style="color: var(--md-on-surface); flex-grow: 1;">Main</span>
+        <div style="width: 24px; height: 24px; border-radius: 6px; background: {{accent}};"></div>
+      </div>
+  <!-- Content · side margin 16dp · scrolls under nothing -->
+  <div style="flex-grow: 1; overflow: hidden; padding: 8px 16px 0;">
+    <div style="display: flex; flex-direction: column; gap: 0;">
+        <div style="display: flex; align-items: center; gap: 16px; min-height: 56px; padding: 12px 0; border-bottom: 1px solid var(--md-outline-variant);">
+          <div style="width: 40px; height: 40px; border-radius: 20px; background: var(--md-on-surface-variant); opacity: 0.25; flex-shrink: 0;"></div>
+          <div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1;">
+            <span class="md-body-large" style="color: var(--md-on-surface);">Row item 1</span>
+            <span class="md-body-medium" style="color: var(--md-on-surface-variant);">Replace with real content</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px; min-height: 56px; padding: 12px 0; border-bottom: 1px solid var(--md-outline-variant);">
+          <div style="width: 40px; height: 40px; border-radius: 20px; background: var(--md-on-surface-variant); opacity: 0.25; flex-shrink: 0;"></div>
+          <div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1;">
+            <span class="md-body-large" style="color: var(--md-on-surface);">Row item 2</span>
+            <span class="md-body-medium" style="color: var(--md-on-surface-variant);">Replace with real content</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px; min-height: 56px; padding: 12px 0; border-bottom: 1px solid var(--md-outline-variant);">
+          <div style="width: 40px; height: 40px; border-radius: 20px; background: var(--md-on-surface-variant); opacity: 0.25; flex-shrink: 0;"></div>
+          <div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1;">
+            <span class="md-body-large" style="color: var(--md-on-surface);">Row item 3</span>
+            <span class="md-body-medium" style="color: var(--md-on-surface-variant);">Replace with real content</span>
+          </div>
+        </div>
+    </div>
+  </div>
+
+      <!-- Bottom navigation · navigation bar 80dp · max 5 destinations -->
+      <div style="height: 80px; flex-shrink: 0; display: flex; align-items: center; padding: 0 8px; background: var(--md-surface-container); border-top: 1px solid var(--md-outline-variant); box-sizing: border-box;">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; flex-grow: 1; min-height: 48px; justify-content: center;">
+          <div style="width: 24px; height: 24px; border-radius: 12px; background: {{accent}}; opacity: 1;"></div>
+          <span class="md-label-medium" style="color: {{accent}};">Home</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; flex-grow: 1; min-height: 48px; justify-content: center;">
+          <div style="width: 24px; height: 24px; border-radius: 12px; background: var(--md-on-surface-variant); opacity: 0.55;"></div>
+          <span class="md-label-medium" style="color: var(--md-on-surface-variant);">Browse</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; flex-grow: 1; min-height: 48px; justify-content: center;">
+          <div style="width: 24px; height: 24px; border-radius: 12px; background: var(--md-on-surface-variant); opacity: 0.55;"></div>
+          <span class="md-label-medium" style="color: var(--md-on-surface-variant);">Activity</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; flex-grow: 1; min-height: 48px; justify-content: center;">
+          <div style="width: 24px; height: 24px; border-radius: 12px; background: var(--md-on-surface-variant); opacity: 0.55;"></div>
+          <span class="md-label-medium" style="color: var(--md-on-surface-variant);">Profile</span>
+        </div>
+      </div>
+  <!-- Bottom safe-area / gesture inset 24dp -->
+  <div style="height: 24px; flex-shrink: 0; background: var(--md-surface-container);"></div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"dark":{"editor":"boolean","default":false,"section":"Theme"},"accent":{"editor":"color","default":"#6750A4","section":"Theme"},"$preview":{"width":412,"height":915}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const dark = this.props.dark ?? false;
+    return {
+      themeClass: dark ? 'theme-dark' : '',
+      accent: this.props.accent ?? (dark ? '#D0BCFF' : '#6750A4'),
+    };
+  }
+}
+</script>
+</body>
+</html>
