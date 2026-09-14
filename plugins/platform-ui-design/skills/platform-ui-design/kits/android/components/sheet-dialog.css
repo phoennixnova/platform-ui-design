@@ -5,6 +5,6 @@
 .md-dialog__actions { display: flex; justify-content: flex-end; gap: 8px; }
 .md-dialog__button { height: 40px; padding: 0 12px; border: 0; border-radius: 20px; background: transparent; color: var(--md-primary); font-family: inherit; cursor: pointer; }
 .md-sheet { box-sizing: border-box; width: 100%; border-radius: 28px 28px 0 0; background: var(--md-surface-container-low); padding: 6px 24px 24px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
-.md-sheet__handle { flex: 0 0 auto; width: 32px; height: 4px; border-radius: 2px; background: color-mix(in srgb, var(--md-on-surface-variant) 40%, transparent); margin-bottom: 8px; }
+.md-sheet__handle { flex: 0 0 auto; width: 32px; height: 4px; border-radius: 2px; background: color-mix(in srgb, var(--md-on-surface-variant) 40%, transparent); }
 .md-sheet__title { margin: 0; color: var(--md-on-surface); }
 .md-sheet__body { margin: 0; color: var(--md-on-surface-variant); }

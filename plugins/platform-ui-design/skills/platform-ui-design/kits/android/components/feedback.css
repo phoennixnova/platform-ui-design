@@ -5,5 +5,5 @@
 .md-progress-circle__track { color: var(--md-secondary-container); }
 .md-progress-circle__value { color: var(--md-primary); }
 .md-snackbar { box-sizing: border-box; width: 100%; min-height: 48px; display: flex; align-items: center; gap: 16px; padding: 0 8px 0 16px; border-radius: 4px; background: var(--md-inverse-surface); }
-.md-snackbar__text { flex: 1 1 auto; min-width: 0; margin: 0; color: var(--md-inverse-on-surface); }
+.md-snackbar__text { flex: 1 1 auto; min-width: 0; margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--md-inverse-on-surface); }
 .md-snackbar__action { flex: 0 0 auto; height: 40px; padding: 0 8px; border: 0; background: transparent; color: var(--md-primary-container); font-family: inherit; cursor: pointer; }

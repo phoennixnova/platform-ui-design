@@ -6,4 +6,6 @@
 .md-switch__thumb { width: 16px; height: 16px; border-radius: 50%; background: var(--md-outline); display: flex; align-items: center; justify-content: center; color: transparent; }
 .md-switch--on { border-color: var(--md-primary); background: var(--md-primary); justify-content: flex-end; }
 .md-switch--on .md-switch__thumb { width: 24px; height: 24px; background: var(--md-on-primary); color: var(--md-primary); }
-.md-switch--disabled { opacity: 0.38; }
+.md-switch-row--disabled p { color: color-mix(in srgb, var(--md-on-surface) 38%, transparent); }
+.md-switch--disabled { border-color: color-mix(in srgb, var(--md-on-surface) 38%, transparent); background: color-mix(in srgb, var(--md-on-surface) 12%, transparent); }
+.md-switch--disabled .md-switch__thumb { background: color-mix(in srgb, var(--md-on-surface) 38%, transparent); }
