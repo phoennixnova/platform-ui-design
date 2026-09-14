@@ -1,0 +1,17 @@
+{
+  "platform": "android",
+  "projectName": "Platform UI · Android",
+  "defaultWidth": 360,
+  "foundations": [
+    { "id": "colors", "group": "Foundations", "title": "Colors", "subtitle": "48 color roles, light and dark", "generated": true },
+    { "id": "type", "group": "Foundations", "title": "Type ramp", "subtitle": "15 styles, Material 3 type scale" },
+    { "id": "spacing-shape", "group": "Foundations", "title": "Spacing & shape", "subtitle": "4 dp grid, shape scale 4/8/12/16/28" },
+    { "id": "chrome-metrics", "group": "Foundations", "title": "Chrome metrics", "subtitle": "Bars, insets, window size classes", "width": 412 }
+  ],
+  "components": [
+    { "slot": "top-chrome", "width": 412 }, { "slot": "primary-nav", "width": 412 },
+    { "slot": "button" }, { "slot": "icon-button" }, { "slot": "fab", "width": 412 }, { "slot": "list-row" },
+    { "slot": "text-field" }, { "slot": "toggle" }, { "slot": "selection" }, { "slot": "sheet-dialog" },
+    { "slot": "search", "width": 412 }, { "slot": "feedback" }
+  ]
+}

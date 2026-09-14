@@ -1,0 +1,66 @@
+<!-- group: Foundations · title: Spacing & shape · subtitle: 4 dp grid, shape scale 4/8/12/16/28 · ref: android-foundations.md §Spacing / grid system -->
+<section class="pud-card pud-stack">
+  <div class="pud-stack">
+    <p class="md-title-small">Margins</p>
+    <p class="md-body-medium">16 dp (compact width) / 24 dp (medium and expanded width)</p>
+  </div>
+
+  <div class="pud-stack">
+    <p class="md-title-small">4 dp grid</p>
+    <p class="md-body-medium">8 dp is the practical increment for component spacing and padding; 4 dp is reserved for fine adjustments</p>
+    <div class="pud-variants">
+      <div class="pud-stack">
+        <div style="width: 4px; height: 32px; background: var(--md-surface-container-high);"></div>
+        <p class="md-label-small">4</p>
+      </div>
+      <div class="pud-stack">
+        <div style="width: 8px; height: 32px; background: var(--md-surface-container-high);"></div>
+        <p class="md-label-small">8</p>
+      </div>
+      <div class="pud-stack">
+        <div style="width: 16px; height: 32px; background: var(--md-surface-container-high);"></div>
+        <p class="md-label-small">16</p>
+      </div>
+      <div class="pud-stack">
+        <div style="width: 24px; height: 32px; background: var(--md-surface-container-high);"></div>
+        <p class="md-label-small">24</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pud-stack">
+    <p class="md-title-small">Row</p>
+    <div style="height: 56px; display: flex; align-items: center; border-bottom: 1px solid var(--md-outline-variant);">
+      <p class="md-body-medium">One-line list item · 56 dp — convention (unverified)</p>
+    </div>
+  </div>
+
+  <div class="pud-stack">
+    <p class="md-title-small">Shape scale</p>
+    <p class="md-body-medium">Corner radius tokens from the Material 3 baseline shape scale</p>
+    <div class="pud-variants">
+      <div class="pud-stack">
+        <div style="width: 64px; height: 64px; border-radius: 4px; background: var(--md-surface-container-high); border: 1px solid var(--md-outline-variant);"></div>
+        <p class="md-label-small">Extra small · 4</p>
+      </div>
+      <div class="pud-stack">
+        <div style="width: 64px; height: 64px; border-radius: 8px; background: var(--md-surface-container-high); border: 1px solid var(--md-outline-variant);"></div>
+        <p class="md-label-small">Small · 8</p>
+      </div>
+      <div class="pud-stack">
+        <div style="width: 64px; height: 64px; border-radius: 12px; background: var(--md-surface-container-high); border: 1px solid var(--md-outline-variant);"></div>
+        <p class="md-label-small">Medium · 12</p>
+      </div>
+      <div class="pud-stack">
+        <div style="width: 64px; height: 64px; border-radius: 16px; background: var(--md-surface-container-high); border: 1px solid var(--md-outline-variant);"></div>
+        <p class="md-label-small">Large · 16</p>
+      </div>
+      <div class="pud-stack">
+        <div style="width: 64px; height: 64px; border-radius: 28px; background: var(--md-surface-container-high); border: 1px solid var(--md-outline-variant);"></div>
+        <p class="md-label-small">Extra large · 28</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="md-body-small pud-note">Margins and the 4 dp grid are from PaneScaffoldDirective.kt and the adaptive-layout codelab. Row height is the M3 one-line list item — convention (unverified); m3.material.io is JS-rendered and could not be fetched directly. Shape radii are the ShapeTokens.kt token set (VERSION 14_1_0); the extra-large token is 28 dp — trust the token over older 24 dp samples.</p>
+</section>

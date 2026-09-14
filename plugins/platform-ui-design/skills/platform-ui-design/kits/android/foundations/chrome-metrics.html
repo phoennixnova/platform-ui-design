@@ -1,0 +1,38 @@
+<!-- group: Foundations · title: Chrome metrics · subtitle: Bars, insets, window size classes · ref: device-metrics.md §Android chrome heights -->
+<section class="pud-card pud-stack">
+  <div style="width: 412px; height: 915px; display: flex; flex-direction: column; border: 1px solid var(--md-outline-variant); border-radius: 12px; overflow: hidden;">
+    <div style="height: 24px; display: flex; align-items: center; justify-content: center; background: var(--md-surface-container-high);">
+      <p class="md-label-small">Status bar · 24</p>
+    </div>
+    <div style="height: 64px; display: flex; align-items: center; justify-content: center; background: var(--md-surface-container);">
+      <p class="md-label-medium">Top app bar · 64 — convention (unverified)</p>
+    </div>
+    <div style="height: 112px; display: flex; align-items: center; justify-content: center; background: var(--md-surface-container-high);">
+      <p class="md-label-medium">Medium top app bar · 112 — convention (unverified)</p>
+    </div>
+    <div style="flex: 1; display: flex; align-items: center; justify-content: center; background: var(--md-surface);">
+      <p class="md-body-medium">Content</p>
+    </div>
+    <div style="height: 80px; display: flex; align-items: center; justify-content: center; background: var(--md-surface-container);">
+      <p class="md-label-medium">Navigation bar · 80</p>
+    </div>
+    <div style="height: 24px; display: flex; align-items: center; justify-content: center; background: var(--md-surface-container-high);">
+      <p class="md-label-small">Gesture inset · 24 — convention (unverified)</p>
+    </div>
+  </div>
+
+  <div class="pud-stack">
+    <p class="md-title-small">Window size classes</p>
+    <p class="md-body-medium">Width dominates layout decisions; a window's size class changes on rotation, multi-window, fold, and free-form resize — never branch on device model.</p>
+    <div class="pud-stack">
+      <p class="md-label-medium">Compact · &lt; 600 dp</p>
+      <p class="md-label-medium">Medium · 600–839 dp</p>
+      <p class="md-label-medium">Expanded · 840–1199 dp</p>
+      <p class="md-label-medium">Large · 1200–1599 dp</p>
+      <p class="md-label-medium">Extra-large · ≥ 1600 dp</p>
+      <p class="md-label-medium">Navigation rail · 80 dp wide</p>
+    </div>
+  </div>
+
+  <p class="md-body-small pud-note">Frame shown is the Pixel 8/9-class phone (412×915 dp). Top app bar heights are widely cited secondary-source figures — m3.material.io is JS-rendered and could not be fetched directly this pass. Gesture inset is the reserved bottom handle area with edge-to-edge gesture navigation. Window size class breakpoints are the official androidx.window.core.layout.WindowSizeClass constants.</p>
+</section>
