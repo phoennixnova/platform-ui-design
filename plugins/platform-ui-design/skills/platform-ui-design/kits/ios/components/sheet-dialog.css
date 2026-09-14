@@ -1,3 +1,4 @@
+.ios-dialog-wrap { box-sizing: border-box; background: var(--ios-bg-grouped); padding: 16px; border-radius: 12px; display: flex; flex-direction: column; gap: 8px; }
 .ios-dialog-label { margin: 0; color: var(--ios-label-secondary); text-transform: uppercase; }
 .ios-alert-demo { display: flex; justify-content: center; }
 .ios-alert { box-sizing: border-box; width: 270px; border-radius: 14px; overflow: hidden; background: var(--ios-bg-grouped-secondary); }
@@ -8,7 +9,7 @@
 .ios-alert__button { box-sizing: border-box; min-height: 44px; border: 0; border-bottom: 1px solid var(--ios-separator); background: transparent; color: var(--ios-accent); font-family: inherit; cursor: pointer; }
 .ios-alert__button:last-child { border-bottom: 0; }
 .ios-alert__button--destructive { color: var(--ios-red); }
-.ios-action-sheet-demo { box-sizing: border-box; width: 100%; padding: 0 16px; }
+.ios-action-sheet-demo { box-sizing: border-box; width: 100%; }
 .ios-action-sheet { display: flex; flex-direction: column; gap: 8px; }
 .ios-action-sheet__group { display: flex; flex-direction: column; border-radius: 13px; overflow: hidden; background: var(--ios-bg-grouped-secondary); }
 .ios-action-sheet__row { box-sizing: border-box; min-height: 57px; border: 0; border-bottom: 1px solid var(--ios-separator); background: transparent; color: var(--ios-accent); font-family: inherit; cursor: pointer; }

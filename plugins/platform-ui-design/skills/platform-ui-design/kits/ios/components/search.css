@@ -7,4 +7,4 @@
 .ios-search-field__icon { flex: 0 0 auto; color: var(--ios-label-secondary); }
 .ios-search-field__text { flex: 1 1 auto; min-width: 0; margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ios-label); }
 .ios-search-field__text--placeholder { color: var(--ios-label-tertiary); }
-.ios-search-cancel { flex: 0 0 auto; border: 0; background: transparent; color: var(--ios-accent); font-family: inherit; padding: 0; cursor: pointer; }
+.ios-search-cancel { flex: 0 0 auto; min-height: 44px; display: inline-flex; align-items: center; border: 0; background: transparent; color: var(--ios-accent); font-family: inherit; padding: 0; cursor: pointer; }
