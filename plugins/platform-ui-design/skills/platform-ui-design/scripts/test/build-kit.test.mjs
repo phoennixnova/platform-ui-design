@@ -38,7 +38,8 @@ test("good kit builds: cards, manifest, exit 0", () => {
   assert.deepEqual(readdirSync(join(out, "components")), ["button.html"]);
   assert.deepEqual(readdirSync(join(out, "foundations")).sort(), ["colors.html", "type.html"]);
   const card = readFileSync(join(out, "components", "button.html"), "utf8");
-  assert.match(card.split("\n")[0], /^<!-- @dsCard group="Buttons" name="Buttons" subtitle="Filled" width="720" -->$/);
+  // fixture defaultWidth is 360 (per-panel content width) -> side-by-side viewport = 2 * (360 + 48) + 24 = 840
+  assert.match(card.split("\n")[0], /^<!-- @dsCard group="Buttons" name="Buttons" subtitle="Filled" width="840" -->$/);
   assert.match(card, /\.ios-btn \{ min-height: 44px;/);
   const manifest = JSON.parse(readFileSync(join(out, "manifest.json"), "utf8"));
   assert.deepEqual(Object.keys(manifest), ["components/button.html", "foundations/colors.html", "foundations/type.html"]);

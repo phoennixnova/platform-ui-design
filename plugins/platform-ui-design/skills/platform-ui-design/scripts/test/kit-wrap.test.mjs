@@ -29,12 +29,28 @@ test("wrapCard produces the documented structure", () => {
     width: 720,
   });
   const lines = out.split("\n");
-  assert.equal(lines[0], '<!-- @dsCard group="Buttons" name="Buttons" subtitle="Filled" width="720" -->');
+  // width 720 > 600 -> panels stack vertically; viewport is one panel + padding (720 + 48 = 768)
+  assert.equal(lines[0], '<!-- @dsCard group="Buttons" name="Buttons" subtitle="Filled" width="768" -->');
   assert.match(out, /<style>[\s\S]*--md-primary: #6750A4;[\s\S]*\.md-btn \{ min-height: 48px; \}[\s\S]*<\/style>/);
   assert.equal((out.match(/<section class="pud-card">/g) ?? []).length, 2, "fragment appears twice");
+  assert.match(out, /<div class="pud-pair pud-pair--stack">/);
   assert.match(out, /<div class="pud-theme"><span class="pud-label">Light<\/span>/);
   assert.match(out, /<div class="pud-theme pud-dark"><span class="pud-label">Dark<\/span>/);
   assert.match(out, /<p class="pud-caption">Source: android-components.md §Buttons<\/p>\s*$/);
+});
+
+test("wrapCard keeps panels side by side under the 600px threshold", () => {
+  const out = wrapCard({
+    platform: "android",
+    header: { group: "Buttons", title: "Buttons" },
+    body: "<section class=\"pud-card\"><button class=\"md-btn\">Go</button></section>",
+    width: 360,
+  });
+  const lines = out.split("\n");
+  // width 360 <= 600 -> panels side by side; viewport = 2 * (360 + 48) + 24 = 840
+  assert.equal(lines[0], '<!-- @dsCard group="Buttons" name="Buttons" width="840" -->');
+  assert.match(out, /<div class="pud-pair">\n/);
+  assert.doesNotMatch(out, /<div class="pud-pair pud-pair--stack">/);
 });
 
 test("wrapCard without ref omits the caption", () => {

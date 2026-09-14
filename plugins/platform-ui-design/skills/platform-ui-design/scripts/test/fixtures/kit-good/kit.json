@@ -1,7 +1,7 @@
 {
   "platform": "ios",
   "projectName": "Platform UI · iOS",
-  "defaultWidth": 720,
+  "defaultWidth": 360,
   "foundations": [
     { "id": "colors", "group": "Foundations", "title": "Colors", "subtitle": "x", "generated": true },
     { "id": "type", "group": "Foundations", "title": "Type ramp", "subtitle": "x" }

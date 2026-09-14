@@ -36,7 +36,8 @@ export function baseCardCss(platform) {
   const s = SURFACE[platform];
   return `
 .pud-pair { display: flex; gap: 24px; align-items: flex-start; font-family: var(--${p}-font); -webkit-font-smoothing: antialiased; }
-.pud-theme { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; padding: 24px; border-radius: 12px; background: var(--${p}-${s.bg}); color: var(--${p}-${s.fg}); }
+.pud-pair--stack { flex-direction: column; }
+.pud-theme { flex: 0 0 auto; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px; padding: 24px; border-radius: 12px; background: var(--${p}-${s.bg}); color: var(--${p}-${s.fg}); }
 .pud-label { align-self: flex-end; font: 500 11px/16px var(--${p}-font); letter-spacing: 0.04em; text-transform: uppercase; opacity: 0.55; }
 .pud-card { display: flex; flex-direction: column; gap: 16px; }
 .pud-variants { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
@@ -57,15 +58,25 @@ export function wrapCard({ platform, header, body, css = "", width }) {
   const captionCss = header.ref
     ? `.pud-caption { margin: 12px 0 0; font: 400 12px/16px var(--${p}-font); opacity: 0.6; }`
     : "";
+  // kit.json's width is the per-panel content width the fragment is designed for. The card
+  // viewport is derived from it: panels <= 600px sit side by side (viewport = both panels +
+  // their padding + the gap between them); wider panels stack vertically instead (viewport =
+  // one panel + its padding).
+  const panelWidth = width + 48; // content width + 24px padding on each side
+  const stacked = width > 600;
+  const viewport = stacked ? panelWidth : 2 * panelWidth + 24;
+  const pairClass = stacked ? "pud-pair pud-pair--stack" : "pud-pair";
+  const panelCss = `.pud-theme { width: ${panelWidth}px; }`;
   return [
-    dsCardComment(header, width),
+    dsCardComment(header, viewport),
     `<style>`,
     tokenStyle(platform),
     baseCardCss(platform),
+    panelCss,
     captionCss,
     css.trim(),
     `</style>`,
-    `<div class="pud-pair">`,
+    `<div class="${pairClass}">`,
     themed("pud-theme"),
     themed("pud-theme pud-dark"),
     `</div>${caption}`,

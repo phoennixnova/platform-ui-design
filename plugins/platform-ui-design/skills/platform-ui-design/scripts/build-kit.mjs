@@ -15,6 +15,9 @@
  * macOS) needs no change here. A named platform must both have a kit.json and a
  * platform-tokens.mjs TOKENS entry.
  *
+ * kit.json widths ("width"/"defaultWidth") are per-panel content widths; the card viewport
+ * (the @dsCard width written into each built file) is derived from that by wrapCard.
+ *
  * Exit codes: 0 ok · 1 lint failure · 2 bad arguments or missing kit.json.
  */
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, renameSync, rmSync, statSync, writeFileSync } from "node:fs";
