@@ -1,0 +1,10 @@
+.ios-list-wrap { box-sizing: border-box; background: var(--ios-bg-grouped); padding: 16px; border-radius: 12px; display: flex; flex-direction: column; gap: 8px; }
+.ios-list-header { margin: 0 0 0 16px; color: var(--ios-label-secondary); text-transform: uppercase; }
+.ios-list-group { background: var(--ios-bg-grouped-secondary); border-radius: 10px; overflow: hidden; }
+.ios-list-row { position: relative; box-sizing: border-box; min-height: 44px; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 16px; margin: 0; border: 0; background: transparent; color: inherit; font-family: inherit; text-align: left; cursor: pointer; }
+.ios-list-row::after { content: ""; position: absolute; left: 16px; right: 0; bottom: 0; height: 1px; background: var(--ios-separator); }
+.ios-list-row:last-child::after { content: none; }
+.ios-list-row--subtitle { min-height: 58px; flex-direction: column; align-items: flex-start; justify-content: center; gap: 2px; }
+.ios-list-row__subtitle { margin: 0; color: var(--ios-label-secondary); }
+.ios-list-row__value { margin: 0; color: var(--ios-label-secondary); }
+.ios-list-row__chevron { color: var(--ios-label-tertiary); }

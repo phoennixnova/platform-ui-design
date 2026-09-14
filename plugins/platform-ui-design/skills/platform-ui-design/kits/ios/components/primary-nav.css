@@ -1,0 +1,3 @@
+.ios-tabbar { box-sizing: border-box; height: 49px; display: flex; background: var(--ios-chrome); border-top: 1px solid var(--ios-separator); }
+.ios-tab { flex: 1; min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; border: 0; background: transparent; color: var(--ios-gray); font-family: inherit; padding: 0; cursor: pointer; }
+.ios-tab--selected { color: var(--ios-accent); }

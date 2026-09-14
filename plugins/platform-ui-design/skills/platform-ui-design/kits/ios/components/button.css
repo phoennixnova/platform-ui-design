@@ -1,0 +1,8 @@
+.ios-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 0 20px; border: 0; border-radius: 12px; font-family: inherit; color: var(--ios-accent); background: transparent; cursor: pointer; }
+.ios-btn--filled { background: var(--ios-accent); color: var(--pud-on-accent); }
+.ios-btn--tinted { background: color-mix(in srgb, var(--ios-accent) 15%, transparent); }
+.ios-btn--gray { background: var(--ios-fill); }
+.ios-btn--small { min-height: 28px; padding: 0 12px; border-radius: 14px; }
+.ios-btn--large { min-height: 50px; padding: 0 24px; border-radius: 14px; }
+.ios-btn:disabled { opacity: 0.35; cursor: default; }
+.ios-btn:active { opacity: 0.7; }
