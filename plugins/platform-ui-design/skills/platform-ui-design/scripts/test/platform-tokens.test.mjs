@@ -16,6 +16,11 @@ for (const p of PLATFORMS) {
     assert.match(TOKENS[p].accentDefault, ok);
     assert.match(TOKENS[p].accentDark, ok);
   });
+  test(`${p}: onAccent light and dark are a hex or rgba literal`, () => {
+    const ok = /^(#[0-9A-Fa-f]{6}|rgba\(\d+,\d+,\d+,[0-9.]+\))$/;
+    assert.match(TOKENS[p].onAccent.light, ok);
+    assert.match(TOKENS[p].onAccent.dark, ok);
+  });
   test(`${p}: type ramp rows are [name, size, lineHeight, weight]`, () => {
     for (const row of TOKENS[p].type) {
       assert.equal(row.length, 4);

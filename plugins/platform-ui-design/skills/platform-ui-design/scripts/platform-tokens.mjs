@@ -83,6 +83,7 @@ export const TOKENS = {
     },
     accentDefault: "#007AFF",
     accentDark: "#0A84FF",
+    onAccent: { light: "#FFFFFF", dark: "#FFFFFF" },
     type: [
       ["large-title", 34, 41, 400], ["title1", 28, 34, 400], ["title2", 22, 28, 400],
       ["title3", 20, 25, 400], ["headline", 17, 22, 600], ["body", 17, 22, 400],
@@ -128,6 +129,7 @@ export const TOKENS = {
     },
     accentDefault: "#6750A4",
     accentDark: "#D0BCFF",
+    onAccent: { light: "#FFFFFF", dark: "#FFFFFF" },
     type: [
       ["display-large", 57, 64, 400], ["display-medium", 45, 52, 400], ["display-small", 36, 44, 400],
       ["headline-large", 32, 40, 400], ["headline-medium", 28, 36, 400], ["headline-small", 24, 32, 400],
@@ -173,6 +175,8 @@ export const TOKENS = {
     },
     accentDefault: "#0067C0",
     accentDark: "#60CDFF",
+    // WinUI TextOnAccentFillColorPrimary is black on the light dark-theme accent (#60CDFF).
+    onAccent: { light: "#FFFFFF", dark: "#000000" },
     type: [
       ["caption", 12, 16, 400], ["body", 14, 20, 400], ["body-strong", 14, 20, 600],
       ["body-large", 18, 24, 400], ["subtitle", 20, 28, 600], ["title", 28, 36, 600],

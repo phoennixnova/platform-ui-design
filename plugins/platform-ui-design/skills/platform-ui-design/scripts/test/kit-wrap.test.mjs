@@ -16,8 +16,14 @@ test("tokenStyle has light on :root, dark on .pud-dark, and the ramp", () => {
   assert.match(s, /\.pud-dark \{[^}]*--ios-label: #FFFFFF;/);
   assert.match(s, /--ios-accent: #007AFF;[\s\S]*\.pud-dark \{[^}]*--ios-accent: #0A84FF;/);
   assert.match(s, /\.ios-body \{ font-size: 17px;/);
-  assert.match(s, /--pud-on-accent: #FFFFFF;/);
+  assert.match(s, /:root \{[^}]*--pud-on-accent: #FFFFFF;/);
+  assert.match(s, /\.pud-dark \{[^}]*--pud-on-accent: #FFFFFF;/);
   assert.match(s, /--ios-font: -apple-system/);
+});
+
+test("tokenStyle puts black on-accent text on the Windows dark accent", () => {
+  const s = tokenStyle("windows");
+  assert.match(s, /\.pud-dark \{[^}]*--pud-on-accent: #000000;/);
 });
 
 test("wrapCard produces the documented structure", () => {

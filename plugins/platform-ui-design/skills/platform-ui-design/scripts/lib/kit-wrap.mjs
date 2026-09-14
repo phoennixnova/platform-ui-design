@@ -21,11 +21,12 @@ export function tokenStyle(platform) {
     cssVars(t.light, p),
     `      --${p}-accent: ${t.accentDefault};`,
     `      --${p}-font: ${t.font};`,
-    `      --pud-on-accent: #FFFFFF;`,
+    `      --pud-on-accent: ${t.onAccent.light};`,
     `}`,
     `.pud-dark {`,
     cssVars(t.dark, p),
     `      --${p}-accent: ${t.accentDark};`,
+    `      --pud-on-accent: ${t.onAccent.dark};`,
     `}`,
     typeClasses(t.type, p),
   ].join("\n");
