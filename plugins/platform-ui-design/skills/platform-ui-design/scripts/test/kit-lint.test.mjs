@@ -16,6 +16,17 @@ test("parseHeader rejects a missing header", () => {
 test("parseHeader requires group and title", () => {
   assert.equal(parseHeader("<!-- slot: x · group: G -->\n").ok, false);
 });
+test("parseHeader keeps \" · \" inside a subtitle value", () => {
+  const r = parseHeader("<!-- slot: button · group: Buttons · title: Buttons · subtitle: Filled / plain · small, medium, large · ref: apple-components.md §Buttons -->\n");
+  assert.equal(r.ok, true);
+  assert.equal(r.fields.subtitle, "Filled / plain · small, medium, large");
+  assert.equal(r.fields.ref, "apple-components.md §Buttons");
+});
+test("parseHeader treats an unrecognized colon segment as continuation text", () => {
+  const r = parseHeader("<!-- slot: x · group: G · title: T · subtitle: Sizes: small · large · ref: x -->\n");
+  assert.equal(r.ok, true);
+  assert.equal(r.fields.subtitle, "Sizes: small · large");
+});
 
 test("clean fragment has no findings", () => {
   const html = HDR + `<section class="pud-card"><button class="ios-btn ios-body" style="color: var(--ios-accent); background: transparent">Go</button>

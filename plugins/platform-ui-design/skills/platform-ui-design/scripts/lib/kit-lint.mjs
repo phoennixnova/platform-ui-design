@@ -4,14 +4,25 @@
 
 const HEADER_RE = /^<!--\s*(.*?)\s*-->/;
 
+// Only these keys start a new field. A split segment that doesn't begin with
+// one of them — even if it contains its own ":" — is continuation text that
+// belongs to the previous field's value (subtitles routinely contain " · ").
+const HEADER_KEYS = new Set(["slot", "group", "title", "subtitle", "ref"]);
+const FIELD_START_RE = /^([a-zA-Z][a-zA-Z-]*)\s*:\s*(.*)$/;
+
 export function parseHeader(html) {
   const m = html.match(HEADER_RE);
   if (!m) return { ok: false, reason: "first line must be a <!-- key: value · key: value --> header" };
   const fields = {};
+  let currentKey = null;
   for (const part of m[1].split(" · ")) {
-    const i = part.indexOf(":");
-    if (i === -1) continue;
-    fields[part.slice(0, i).trim()] = part.slice(i + 1).trim();
+    const km = part.match(FIELD_START_RE);
+    if (km && HEADER_KEYS.has(km[1].toLowerCase())) {
+      currentKey = km[1].toLowerCase();
+      fields[currentKey] = km[2].trim();
+    } else if (currentKey) {
+      fields[currentKey] += " · " + part;
+    }
   }
   for (const req of ["group", "title"])
     if (!fields[req]) return { ok: false, reason: `header is missing "${req}"` };
