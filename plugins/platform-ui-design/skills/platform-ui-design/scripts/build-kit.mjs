@@ -42,9 +42,14 @@ const check = arg("check") === true;
 const kitsRoot = resolve(String(arg("kits", join(here, "..", "kits"))));
 
 // Discover which platforms exist under kitsRoot: any subdirectory holding a kit.json.
-// (When --kits points directly at a single kit fixture, that dir itself is the only "platform".)
+// (When --kits points directly at a single kit fixture, that dir itself is the only "platform" —
+// resolved from the kit's own "platform" field, since the directory name carries no platform info.)
 function discoverPlatforms() {
-  if (existsSync(join(kitsRoot, "kit.json"))) return [String(platformArg).toLowerCase()];
+  const rootKitPath = join(kitsRoot, "kit.json");
+  if (existsSync(rootKitPath)) {
+    const kit = JSON.parse(readFileSync(rootKitPath, "utf8"));
+    return [String(kit.platform ?? platformArg).toLowerCase()];
+  }
   if (!existsSync(kitsRoot)) return [];
   return readdirSync(kitsRoot)
     .filter(name => {
