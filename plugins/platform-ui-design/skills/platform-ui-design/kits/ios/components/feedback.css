@@ -1,0 +1,5 @@
+.ios-feedback-block { display: flex; flex-direction: column; gap: 8px; }
+.ios-feedback-label { margin: 0; color: var(--ios-label-secondary); text-transform: uppercase; }
+.ios-progress-bar { box-sizing: border-box; width: 100%; height: 4px; border-radius: 2px; background: var(--ios-fill); overflow: hidden; }
+.ios-progress-bar__fill { height: 100%; border-radius: 2px; background: var(--ios-accent); }
+.ios-spinner { color: var(--ios-label-secondary); }

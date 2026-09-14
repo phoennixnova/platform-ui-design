@@ -1,0 +1,10 @@
+.ios-search-demo { box-sizing: border-box; width: 100%; display: flex; flex-direction: column; background: var(--ios-chrome); border-bottom: 1px solid var(--ios-separator); }
+.ios-search-demo__bar { box-sizing: border-box; height: 44px; display: flex; align-items: center; justify-content: center; padding: 0 16px; }
+.ios-search-demo__bar-title { margin: 0; color: var(--ios-label); text-align: center; }
+.ios-search-demo__row { box-sizing: border-box; height: 52px; display: flex; align-items: center; gap: 8px; padding: 8px 16px; }
+.ios-search-field { box-sizing: border-box; flex: 1 1 auto; min-width: 0; height: 36px; display: flex; align-items: center; gap: 6px; padding: 0 8px; border-radius: 10px; background: var(--ios-fill); }
+.ios-search-field--active { box-shadow: inset 0 0 0 2px var(--ios-accent); }
+.ios-search-field__icon { flex: 0 0 auto; color: var(--ios-label-secondary); }
+.ios-search-field__text { flex: 1 1 auto; min-width: 0; margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ios-label); }
+.ios-search-field__text--placeholder { color: var(--ios-label-tertiary); }
+.ios-search-cancel { flex: 0 0 auto; border: 0; background: transparent; color: var(--ios-accent); font-family: inherit; padding: 0; cursor: pointer; }

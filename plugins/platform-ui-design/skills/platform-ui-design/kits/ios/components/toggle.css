@@ -1,0 +1,8 @@
+.ios-toggle-rows { display: flex; flex-direction: column; border-radius: 10px; overflow: hidden; background: var(--ios-bg-grouped-secondary); }
+.ios-toggle-row { box-sizing: border-box; position: relative; min-height: 44px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 16px; }
+.ios-toggle-row::after { content: ""; position: absolute; left: 16px; right: 0; bottom: 0; height: 1px; background: var(--ios-separator); }
+.ios-toggle-row:last-child::after { content: none; }
+.ios-toggle { flex: 0 0 auto; box-sizing: border-box; display: inline-flex; align-items: center; width: 51px; height: 31px; padding: 2px; border-radius: 15.5px; background: var(--ios-fill); justify-content: flex-start; }
+.ios-toggle--on { background: var(--ios-green); justify-content: flex-end; }
+.ios-toggle--disabled { opacity: 0.35; }
+.ios-toggle__knob { width: 27px; height: 27px; border-radius: 50%; background: var(--pud-on-accent); }

@@ -12,6 +12,6 @@
     { "slot": "top-chrome", "width": 393 }, { "slot": "primary-nav", "width": 393 },
     { "slot": "button" }, { "slot": "icon-button" }, { "slot": "fab", "width": 393 }, { "slot": "list-row" },
     { "slot": "text-field" }, { "slot": "toggle" }, { "slot": "selection" }, { "slot": "sheet-dialog" },
-    { "slot": "search" }, { "slot": "feedback" }
+    { "slot": "search", "width": 393 }, { "slot": "feedback" }
   ]
 }

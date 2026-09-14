@@ -1,0 +1,39 @@
+<!-- slot: sheet-dialog · group: Presentation · title: Sheets & dialogs · subtitle: Alert · action sheet · bottom sheet · ref: apple-components.md §Alerts -->
+<section class="pud-card pud-stack">
+  <p class="ios-footnote ios-dialog-label">Alert</p>
+  <div class="ios-alert-demo">
+    <div class="ios-alert">
+      <div class="ios-alert__body">
+        <p class="ios-headline ios-alert__title">Delete Photo?</p>
+        <p class="ios-footnote ios-alert__message">This action can't be undone.</p>
+      </div>
+      <div class="ios-alert__actions">
+        <button class="ios-alert__button ios-body ios-alert__button--destructive" type="button">Delete</button>
+        <button class="ios-alert__button ios-body" type="button">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="ios-footnote ios-dialog-label">Action sheet</p>
+  <div class="ios-action-sheet-demo">
+    <div class="ios-action-sheet">
+      <div class="ios-action-sheet__group">
+        <button class="ios-action-sheet__row ios-body ios-action-sheet__row--destructive" type="button">Delete Conversation</button>
+        <button class="ios-action-sheet__row ios-body" type="button">Mute</button>
+        <button class="ios-action-sheet__row ios-body" type="button">Archive</button>
+      </div>
+      <button class="ios-action-sheet__row ios-action-sheet__row--cancel ios-headline" type="button">Cancel</button>
+    </div>
+  </div>
+
+  <p class="ios-footnote ios-dialog-label">Bottom sheet</p>
+  <div class="ios-sheet-demo">
+    <div class="ios-sheet">
+      <span class="ios-sheet__grabber"></span>
+      <p class="ios-headline ios-sheet__title">Share</p>
+      <p class="ios-footnote ios-sheet__body">Choose how to share this item.</p>
+    </div>
+  </div>
+
+  <p class="ios-footnote pud-note">Alert 270 pt wide, radius 14 pt, 44 pt button rows, hairlines between message and buttons. Action sheet spans the screen minus 16 pt margins, 57 pt rows, radius 13 pt — destructive choices at the top, Cancel separated at the bottom. Sheets carry a 36×5 pt grabber 5 pt from the top edge.</p>
+</section>

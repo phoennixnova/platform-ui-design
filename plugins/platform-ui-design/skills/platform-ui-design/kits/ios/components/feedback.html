@@ -1,0 +1,25 @@
+<!-- slot: feedback · group: Status · title: Progress & activity · subtitle: Determinate bar · spinner · ref: apple-components.md §Progress indicators -->
+<section class="pud-card pud-stack">
+  <div class="ios-feedback-block">
+    <p class="ios-footnote ios-feedback-label">Progress</p>
+    <div class="ios-progress-bar">
+      <div class="ios-progress-bar__fill" style="width: 62%"></div>
+    </div>
+  </div>
+  <div class="ios-feedback-block">
+    <p class="ios-footnote ios-feedback-label">Activity</p>
+    <svg class="ios-spinner" width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="12" y1="2" x2="12" y2="6" opacity="1"/>
+        <line x1="18.36" y1="5.64" x2="15.54" y2="8.46" opacity="0.87"/>
+        <line x1="22" y1="12" x2="18" y2="12" opacity="0.75"/>
+        <line x1="18.36" y1="18.36" x2="15.54" y2="15.54" opacity="0.62"/>
+        <line x1="12" y1="22" x2="12" y2="18" opacity="0.5"/>
+        <line x1="5.64" y1="18.36" x2="8.46" y2="15.54" opacity="0.37"/>
+        <line x1="2" y1="12" x2="6" y2="12" opacity="0.25"/>
+        <line x1="5.64" y1="5.64" x2="8.46" y2="8.46" opacity="0.12"/>
+      </g>
+    </svg>
+  </div>
+  <p class="ios-footnote pud-note">Bar 4 pt tall, radius 2 pt, fills leading to trailing; keep the pace even. Spinner 20 pt, 8 spokes fading clockwise. No toasts on iOS — use inline status, an alert, or a sheet.</p>
+</section>
