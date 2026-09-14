@@ -1,0 +1,32 @@
+<!-- group: Foundations · title: Chrome metrics · subtitle: Title bar, command bar, NavigationView, breakpoints · ref: windows-fluent.md §App silhouette & navigation -->
+<section class="pud-card pud-stack">
+  <div style="width: 1008px; display: flex; flex-direction: column; border: 1px solid var(--win-stroke-default); border-radius: 8px; overflow: hidden;">
+    <div style="height: 32px; display: flex; align-items: center; justify-content: space-between; background: var(--win-bg-mica);">
+      <p class="win-caption" style="margin-left: 12px;">Title bar · 32</p>
+      <div style="width: 138px; height: 32px;"></div>
+    </div>
+    <div style="height: 48px; display: flex; align-items: center; background: var(--win-card);">
+      <p class="win-body" style="margin-left: 12px;">CommandBar · 48</p>
+    </div>
+    <div style="display: flex; height: 480px;">
+      <div style="width: 320px; display: flex; align-items: center; justify-content: center; background: var(--win-card-secondary); border-right: 1px solid var(--win-divider);">
+        <p class="win-body">NavigationView pane · 320</p>
+      </div>
+      <div style="flex: 1; display: flex; align-items: center; justify-content: center; background: var(--win-bg-base);">
+        <p class="win-body">Content</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pud-stack">
+    <p class="win-body-strong">Breakpoints</p>
+    <p class="win-body">small &lt;640 · medium 640–1007 · large ≥1008</p>
+  </div>
+
+  <div class="pud-stack">
+    <p class="win-body-strong">NavigationView pane modes</p>
+    <p class="win-body">top / left-compact 48 / left 320</p>
+  </div>
+
+  <p class="win-body pud-note">Frame shown is the Windows large breakpoint (1008 epx wide, §4.1). The title bar's trailing 138px is left empty — that region is reserved for the three system-drawn caption buttons (minimize/maximize/close); the shell owns their paint and hit-test, and a custom title bar that mis-reports it breaks Snap Layouts (§3.3). CommandBar and the NavigationView pane are from §3.4 and §3.2; PaneDisplayMode="Auto" switches LeftMinimal → LeftCompact → Left at the same 640/1008 width thresholds as the breakpoints above.</p>
+</section>

@@ -1,0 +1,17 @@
+{
+  "platform": "windows",
+  "projectName": "Platform UI · Windows",
+  "defaultWidth": 480,
+  "foundations": [
+    { "id": "colors", "group": "Foundations", "title": "Colors", "subtitle": "Theme brushes, light and dark", "generated": true },
+    { "id": "type", "group": "Foundations", "title": "Type ramp", "subtitle": "8 styles, Windows type ramp" },
+    { "id": "spacing-shape", "group": "Foundations", "title": "Spacing & shape", "subtitle": "4 px grid, 4 px controls, 8 px overlays" },
+    { "id": "chrome-metrics", "group": "Foundations", "title": "Chrome metrics", "subtitle": "Title bar, command bar, NavigationView, breakpoints", "width": 1008 }
+  ],
+  "components": [
+    { "slot": "top-chrome", "width": 1008 }, { "slot": "primary-nav", "width": 1008 },
+    { "slot": "button" }, { "slot": "icon-button" }, { "slot": "fab", "width": 1008 }, { "slot": "list-row" },
+    { "slot": "text-field" }, { "slot": "toggle" }, { "slot": "selection" }, { "slot": "sheet-dialog" },
+    { "slot": "search" }, { "slot": "feedback" }
+  ]
+}

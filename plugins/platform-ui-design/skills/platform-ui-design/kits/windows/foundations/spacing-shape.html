@@ -1,0 +1,56 @@
+<!-- group: Foundations · title: Spacing & shape · subtitle: 4 px grid, 4 px controls, 8 px overlays · ref: windows-fluent.md §Margins, gutters, spacing -->
+<section class="pud-card pud-stack">
+  <div class="pud-stack">
+    <p class="win-body-strong">Margins &amp; gutters</p>
+    <p class="win-body">24 px page margin · 12 px content gutter below 640 px window width, 24 px at 640 px and above</p>
+  </div>
+
+  <div class="pud-stack">
+    <p class="win-body-strong">4 px grid</p>
+    <p class="win-body">Every margin, padding and control dimension sizes in 4 px increments so edges stay pixel-aligned after DPI scaling</p>
+    <div class="pud-variants">
+      <div class="pud-stack">
+        <div style="width: 8px; height: 32px; background: var(--win-card); border: 1px solid var(--win-stroke-default);"></div>
+        <p class="win-caption">8</p>
+      </div>
+      <div class="pud-stack">
+        <div style="width: 12px; height: 32px; background: var(--win-card); border: 1px solid var(--win-stroke-default);"></div>
+        <p class="win-caption">12</p>
+      </div>
+      <div class="pud-stack">
+        <div style="width: 16px; height: 32px; background: var(--win-card); border: 1px solid var(--win-stroke-default);"></div>
+        <p class="win-caption">16</p>
+      </div>
+      <div class="pud-stack">
+        <div style="width: 48px; height: 32px; background: var(--win-card); border: 1px solid var(--win-stroke-default);"></div>
+        <p class="win-caption">48</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pud-stack">
+    <p class="win-body-strong">Control height &amp; row</p>
+    <div style="height: 32px; display: flex; align-items: center; padding: 0 12px; background: var(--win-card); border: 1px solid var(--win-stroke-default); border-radius: 4px;">
+      <p class="win-body">Control · 32 — convention (unverified)</p>
+    </div>
+    <div style="height: 40px; display: flex; align-items: center; padding: 0 12px; border-bottom: 1px solid var(--win-divider);">
+      <p class="win-body">Row · 40 — convention (unverified)</p>
+    </div>
+  </div>
+
+  <div class="pud-stack">
+    <p class="win-body-strong">Corner radius</p>
+    <div class="pud-variants">
+      <div class="pud-stack">
+        <div style="width: 64px; height: 64px; border-radius: 4px; background: var(--win-card); border: 1px solid var(--win-stroke-default);"></div>
+        <p class="win-caption">Controls · 4</p>
+      </div>
+      <div class="pud-stack">
+        <div style="width: 64px; height: 64px; border-radius: 8px; background: var(--win-card); border: 1px solid var(--win-stroke-default);"></div>
+        <p class="win-caption">Overlays / cards · 8</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="win-body pud-note">Margins and the gutter breakpoint are from §4.3; the 4 px grid keeps edges pixel-aligned after DPI scaling. Control height (32) and row height (40) are ecosystem convention, not independently confirmed in Microsoft's published pages — §18 notes the 32 px control height is plausible from the 32 px title-bar height but not stated outright. Radius tokens are ControlCornerRadius (4, in-page controls) and OverlayCornerRadius (8, ContentDialog/Flyout/app window) from §9.</p>
+</section>
