@@ -88,7 +88,7 @@ derives each card's viewport from that (side by side ≤600, stacked above). Ask
 "push the iOS kit to Claude Design" and it diffs the bundle against the `Platform UI · iOS`
 project and writes only what changed. `--platform android` and `--platform windows` do the
 same for Material 3 and Fluent; `--platform all` discovers every `kits/<platform>/kit.json`
-directory, so a new platform folder is picked up automatically; `--check` lints without
+directory, so a new platform folder is picked up automatically; `--render <dir>` screenshots every card (Playwright optional); `--check` lints without
 writing.
 
 Components are hand-authored fragments under `kits/<platform>/components/`; the build

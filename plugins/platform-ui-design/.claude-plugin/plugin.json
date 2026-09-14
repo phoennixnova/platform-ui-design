@@ -1,6 +1,6 @@
 {
   "name": "platform-ui-design",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Design and build native-feeling GUIs that follow Apple's Human Interface Guidelines, Android's Material 3 guidance, and Microsoft's Fluent design — native code, cross-platform code, specs, audits, and Claude Design mockups.",
   "author": {
     "name": "Brian Welch"

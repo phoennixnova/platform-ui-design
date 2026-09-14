@@ -26,7 +26,9 @@ Card widths in `kit.json` are per-panel content widths; the builder derives each
 1. **Build.**
    node ${CLAUDE_PLUGIN_ROOT}/skills/platform-ui-design/scripts/build-kit.mjs --platform ios --out ./dist/kit-ios
    Exit 1 = lint findings: fix the fragment, do not push. Exit 2 = bad arguments.
-   `--check` lints without writing and needs no `--out`.
+   `--check` lints without writing and needs no `--out`. `--render <dir>` writes one PNG per
+   card (needs Playwright; prints a skip line otherwise) — read those to verify a card, never
+   open the HTML in a browser tab.
 2. **Find the project.** `DesignSync list_projects`. Match on name. None → ask the user once
    ("Create `Platform UI · iOS` as a new design-system project?"), then `create_project`.
    Then `get_project` and confirm `type` is `PROJECT_TYPE_DESIGN_SYSTEM`. If it is not, stop:

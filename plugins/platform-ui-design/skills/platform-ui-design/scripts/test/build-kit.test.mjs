@@ -155,3 +155,20 @@ test("--platform all in single-kit fixture mode resolves the kit's own platform 
   assert.deepEqual(readdirSync(out).sort(), ["components", "foundations", "manifest.json"]);
   rmSync(dirname(out), { recursive: true, force: true });
 });
+
+test("--render without playwright reports skip, builds normally, writes no render dir", () => {
+  const out = join(tmp(), "kit-ios");
+  const render = join(dirname(out), "render");
+  const r = run(["--platform", "ios", "--kits", join(FX, "kit-good"), "--out", out, "--render", render]);
+  assert.equal(r.status, 0, r.stderr);
+  assert.match(r.stdout, /render skipped \(playwright not importable\)|rendered \d+ cards/);
+  assert.equal(existsSync(join(out, "manifest.json")), true);
+  if (/render skipped/.test(r.stdout)) assert.equal(existsSync(render), false);
+  rmSync(dirname(out), { recursive: true, force: true });
+});
+
+test("--render requires a directory argument", () => {
+  const r = run(["--platform", "ios", "--kits", join(FX, "kit-good"), "--check", "--render"]);
+  assert.equal(r.status, 2);
+  assert.match(r.stderr, /--render needs a directory/);
+});

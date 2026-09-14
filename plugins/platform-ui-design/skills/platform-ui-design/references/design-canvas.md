@@ -75,6 +75,9 @@ artboard list; do not try to seed the payload yourself.
 - Toggle `dark` mentally (or in the published canvas) and confirm every surface, border and
   icon has a dark value.
 - Run the artboard past `references/review-rubric.md` passes 1–3.
+- Check by reading the `.dc.html` and `canvas.json` (frame size vs. `w`/`h`, tokens, no
+  literal hex) — do not open artboards in a browser tab; the published canvas is the place
+  to look, and the `design` skill handles that.
 
 ---
 

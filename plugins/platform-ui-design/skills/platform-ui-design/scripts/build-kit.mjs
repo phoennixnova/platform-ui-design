@@ -2,13 +2,15 @@
 /**
  * build-kit.mjs — assemble a platform kit for Claude Design from kits/<platform>/.
  *
- *   node build-kit.mjs --platform ios|android|windows|all --out <dir> [--check] [--kits <dir>]
+ *   node build-kit.mjs --platform ios|android|windows|all --out <dir> [--check] [--render <dir>] [--kits <dir>]
  *
  * Reads kit.json + fragments, lints them (see lib/kit-lint.mjs), wraps each into a complete
  * @dsCard HTML file (see lib/kit-wrap.mjs), and writes <out>/components, <out>/foundations
  * and <out>/manifest.json ({ path: sha256 }). Writes go to a temp dir and are renamed into
  * place, so <out> is never half-written. --check does everything except the final write, and
- * --out is only required when not --check.
+ * --out is only required when not --check. --render <dir> screenshots every card to
+ * <dir>/<path>.png when playwright is importable (otherwise prints a skip line) so a
+ * reviewer reads PNGs instead of driving a browser.
  *
  * Platform discovery for `--platform all`: every subdirectory of the kits root that
  * contains a kit.json, in sorted order — not a hardcoded list, so a new platform (e.g.
@@ -43,6 +45,9 @@ if (!platformArg || platformArg === true) die("--platform is required (a platfor
 const check = arg("check") === true;
 const outArg = arg("out");
 if (!check && (!outArg || outArg === true)) die("--out is required", 2);
+const renderArg = arg("render");
+if (renderArg === true) die("--render needs a directory: --render <dir>", 2);
+const renderDir = renderArg ? resolve(String(renderArg)) : null;
 const kitsRoot = resolve(String(arg("kits", join(here, "..", "kits"))));
 const isAllMode = String(platformArg).toLowerCase() === "all";
 // When --kits points directly at a single kit fixture (it has its own kit.json), that fixture
@@ -191,6 +196,30 @@ async function renderCheck(files) {
   return errors;
 }
 
+/** Screenshot every card into <dir>/<path>.png at its @dsCard viewport width. Playwright is
+ *  optional: without it this prints a skip line and returns 0. Lets a reviewer read PNGs
+ *  instead of driving a browser by hand. */
+async function renderCards(files, dir) {
+  let pw;
+  try { pw = await import("playwright"); } catch { console.log("render skipped (playwright not importable)"); return 0; }
+  const browser = await pw.chromium.launch();
+  let n = 0;
+  for (const [p, html] of files) {
+    if (!p.endsWith(".html")) continue;
+    const width = Number(html.match(/^<!-- @dsCard [^>]*width="(\d+)"/)?.[1] ?? 800);
+    const page = await browser.newPage({ viewport: { width, height: 600 } });
+    await page.setContent(html, { waitUntil: "load" });
+    const target = join(dir, `${p}.png`);
+    mkdirSync(dirname(target), { recursive: true });
+    await page.screenshot({ path: target, fullPage: true });
+    await page.close();
+    n++;
+  }
+  await browser.close();
+  console.log(`rendered ${n} cards -> ${dir}`);
+  return n;
+}
+
 let failed = false;
 for (const platform of platforms) {
   // --platform all always writes each platform to its own <out>/kit-<platform> subdirectory,
@@ -200,6 +229,7 @@ for (const platform of platforms) {
   const r = buildPlatform(platform);
   if (!r.ok) { failed = true; continue; }
   const cards = [...r.files.keys()].filter(p => p.endsWith(".html")).length;
+  if (renderDir) await renderCards(r.files, isAllMode && !isFixtureMode ? join(renderDir, `kit-${platform}`) : renderDir);
   if (check) {
     const errs = await renderCheck(r.files);
     if (errs) {

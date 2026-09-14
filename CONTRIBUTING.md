@@ -58,7 +58,7 @@ regenerate the fixtures with the commands in `docs/superpowers/plans/2026-09-13-
 (Task 1, step 1) **only** when the change to output
 is intended, and say so in the commit message.
 
-Kit fragments: run `node scripts/build-kit.mjs --platform all --check` before opening a PR
+Kit fragments: run `node scripts/build-kit.mjs --platform all --check` (add `--render <dir>` to get PNGs if Playwright is installed) before opening a PR
 that touches anything under `kits/`.
 
 ## Adding a platform

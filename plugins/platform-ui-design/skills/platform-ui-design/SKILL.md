@@ -203,7 +203,11 @@ the same token source as the artboards. Read `references/design-system-sync.md` 
 contract; the short version:
 
 1. Build: `node ${CLAUDE_PLUGIN_ROOT}/skills/platform-ui-design/scripts/build-kit.mjs --platform ios --out ./dist/kit-ios`
-   (`--check` lints without writing; `--platform all` builds three bundles.)
+   (`--check` lints without writing; `--platform all` builds three bundles; `--render <dir>`
+   screenshots every card when Playwright is installed.)
+   **Verify with `--check` / `--render` and read the output — never open cards in a browser
+   tab by hand; that costs 3–5× the tool calls and the shared browser pane collides with
+   other agents.
 2. Diff against the project with `DesignSync` (`list_projects` → `list_files` → per-file
    `get_file` only where the manifest hash may differ), show the user the add/change/delete
    table, `finalize_plan`, `write_files` / `delete_files`. Never a wholesale replace.
