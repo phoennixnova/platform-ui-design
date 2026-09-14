@@ -1,0 +1,66 @@
+name: Source suggestion
+description: Propose a new best-practice page to fold into the reference library
+title: "[source] "
+labels: ["source-suggestion"]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: The public page publishing the guideline, number, or rule.
+      placeholder: https://developer.android.com/design/ui/mobile/guides/foundations/...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: license
+    attributes:
+      label: Publisher / license
+      description: The license the source page is published under, as best you can tell.
+      options:
+        - CC BY
+        - Apache-2.0
+        - W3C
+        - all rights reserved
+        - unknown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - iOS/iPadOS
+        - macOS
+        - watchOS/tvOS/visionOS
+        - Android
+        - Windows
+        - cross-platform
+    validations:
+      required: false
+
+  - type: textarea
+    id: affects
+    attributes:
+      label: Affects
+      description: Which references/*.md file and section this would change or add to.
+      placeholder: references/android-foundations.md — "Elevation" section
+    validations:
+      required: false
+
+  - type: textarea
+    id: adds-or-corrects
+    attributes:
+      label: What it adds or corrects
+      description: The specific number, rule, or statement this source supports, and how it differs from what's currently in the reference file (if anything).
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: reachable
+    attributes:
+      label: Reachability
+      options:
+        - label: I have checked the page is publicly reachable and not paywalled
+          required: true

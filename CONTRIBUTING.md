@@ -45,6 +45,50 @@ Artboards must remain valid Design Components: the `<script src="./support.js"><
 line exactly as-is, `data-props` single-quoted with `&` and `'` escaped, one artboard named
 `Main.dc.html`, and only known keys in `canvas.json`.
 
+Token values for both generators — artboards and kits — live in one place,
+`scripts/platform-tokens.mjs`. Run the test suite after any change to it:
+
+```
+node --test "plugins/platform-ui-design/skills/platform-ui-design/scripts/test/*.test.mjs"
+```
+
+(the glob form, not a bare directory — Node 22+ resolves a directory argument differently and
+the suite will not be found). The golden test will fail if artboard output changes;
+regenerate the fixtures with the commands in Task 1 step 1 **only** when the change to output
+is intended, and say so in the commit message.
+
+Kit fragments: run `node scripts/build-kit.mjs --platform all --check` before opening a PR
+that touches anything under `kits/`.
+
+## Adding a platform
+
+To add a fourth platform kit (say, macOS):
+
+1. Add `TOKENS`, `CHROME`, `DEVICES`, `PREFIX`, and `SURFACE` entries for it in
+   `scripts/platform-tokens.mjs` (plus `onAccent` in the token set — every existing platform
+   defines one and the kit build assumes it does too).
+2. Create `kits/<platform>/kit.json` plus `foundations/type.html`,
+   `foundations/spacing-shape.html`, `foundations/chrome-metrics.html`, and 12
+   `components/<slot>.html` fragments using the same slot ids the other platforms use:
+   `top-chrome`, `primary-nav`, `button`, `icon-button`, `fab`, `list-row`, `text-field`,
+   `toggle`, `selection`, `sheet-dialog`, `search`, `feedback`.
+3. Add `references/<platform>.md` following the sourcing rules in "Ground rules for
+   reference content" above — cited primary sources, no vendor prose, conventions marked as
+   such.
+4. Run the test suite and `node scripts/build-kit.mjs --platform <platform> --check`.
+   `--platform all` discovers every `kits/*/kit.json` directory automatically, so once the kit
+   passes `--check` it is already included in `--platform all` runs — no registration step.
+5. Add the platform to the SKILL.md §1 non-negotiables table and to the §2 reference list.
+
+## Suggesting a source
+
+To propose a new best-practice page for the reference library, open a GitHub issue using the
+"Source suggestion" template with the page's URL, its license, which `references/*.md` file
+and section it affects, and what number or rule it adds or corrects. Maintainers fold accepted
+sources into `references/*.md` with a citation and a new row in `ATTRIBUTION.md`. Apple-owned
+prose is never copied into this repository regardless of what the suggestion quotes — see
+`ATTRIBUTION.md` for why, and restate any Apple-sourced fact in this project's own words.
+
 ## Validating before you push
 
 ```bash

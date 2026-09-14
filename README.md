@@ -12,7 +12,7 @@ reference says so rather than inventing one.
 ## Install
 
 ```
-/plugin marketplace add btwelch/platform-ui-design
+/plugin marketplace add phoennixnova/platform-ui-design
 /plugin install platform-ui-design@btwelch-plugins
 ```
 
@@ -70,6 +70,30 @@ Claude Design brief carrying the same metrics instead.
 
 Requires Node 18+. No dependencies. Writes only to `--out`.
 
+## Claude Design design systems
+
+The plugin also ships each platform as a Claude Design design-system project, so screens
+generated in claude.ai/design start from the platform's real components instead of guesses:
+
+```bash
+node plugins/platform-ui-design/skills/platform-ui-design/scripts/build-kit.mjs --platform ios --out ./dist/kit-ios
+```
+
+That writes 16 self-contained cards — 4 foundations (colors, type ramp, spacing & shape,
+chrome metrics) and 12 components (navigation chrome, primary nav, buttons, icon buttons,
+FAB-or-equivalent, list rows, text fields, toggles, selection, sheets & dialogs, search,
+feedback) — each rendered light and dark from the same token module the artboards use, plus
+a `manifest.json` of hashes. `kit.json` widths are per-panel content widths; the builder
+derives each card's viewport from that (side by side ≤600, stacked above). Ask Claude to
+"push the iOS kit to Claude Design" and it diffs the bundle against the `Platform UI · iOS`
+project and writes only what changed. `--platform android` and `--platform windows` do the
+same for Material 3 and Fluent; `--platform all` discovers every `kits/<platform>/kit.json`
+directory, so a new platform folder is picked up automatically; `--check` lints without
+writing.
+
+Components are hand-authored fragments under `kits/<platform>/components/`; the build
+refuses any fragment containing a color literal, a fixed `font-size`, an emoji or an `<img>`.
+
 ## Layout
 
 ```
@@ -91,8 +115,18 @@ plugins/platform-ui-design/
     │   ├── accessibility.md        WCAG 2.2 AA for apps, VoiceOver/TalkBack/Narrator,
     │   │                           20-item acceptance checklist
     │   ├── design-canvas.md        the Claude Design handoff contract
+    │   ├── design-system-sync.md   the Claude Design kit push/diff contract
     │   └── review-rubric.md        8-pass audit with P0–P3 severities
-    └── scripts/make-artboards.mjs
+    ├── kits/                       Claude Design kit sources, one dir per platform
+    │   ├── ios/                    kit.json, 3 foundation fragments, 12 component fragments
+    │   ├── android/                same shape, Material 3 fragments
+    │   └── windows/                same shape, Fluent fragments
+    └── scripts/
+        ├── make-artboards.mjs      Mode V artboard/token generator
+        ├── build-kit.mjs           assembles a kits/<platform>/ into a Claude Design bundle
+        ├── platform-tokens.mjs     shared token/metric source for both generators
+        ├── lib/                    kit-lint.mjs, kit-wrap.mjs — used by build-kit.mjs
+        └── test/                   node --test suite for the generators and kit build
 ```
 
 ## Sources

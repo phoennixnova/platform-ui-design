@@ -39,6 +39,7 @@ one AskUserQuestion round, not an interrogation.
    - **X (cross-platform code)** → React Native, Flutter, or web. §4.
    - **S (spec / critique)** → written spec, redlines, or an audit of existing UI. §5.
    - **V (visual)** → mockups on a Claude Design canvas. §6.
+   - **K (kit)** → publish or update the platform's design system in Claude Design. §8.
 4. **Design system** — if the user has one (a repo, tokens file, brand kit, existing screens),
    find it and lift exact values. Their system outranks both HIG and Material on color, type
    and spacing; the platform still owns navigation chrome, control anatomy and metrics.
@@ -82,6 +83,7 @@ Do not read all of these. Read the ones the task needs.
 | `references/accessibility.md` | Any a11y question, and **always** before declaring a design done |
 | `references/design-canvas.md` | Mode V — producing Claude Design artboards or prompts |
 | `references/review-rubric.md` | Mode S — auditing or critiquing an existing interface |
+| `references/design-system-sync.md` | Mode K — pushing a platform kit into a Claude Design design-system project |
 
 Values in these files are sourced and cited. Where a platform does not publish a number
 (Apple no longer publishes numeric layout margins; much of the Material spec site is
@@ -191,3 +193,22 @@ width before handing over.
 Before calling any deliverable done, run the acceptance checklist at the end of
 `references/accessibility.md` against it, and state which items you could not verify. Name the
 platform version you targeted and any assumption you made.
+
+## 8. Mode K — platform kits in Claude Design
+
+Each platform ships as a Claude Design design-system project — `Platform UI · iOS`,
+`Platform UI · Android`, `Platform UI · Windows` — holding 4 foundation cards (colors, type,
+spacing & shape, chrome metrics) and 12 component cards, every one light and dark, built from
+the same token source as the artboards. Read `references/design-system-sync.md` for the full
+contract; the short version:
+
+1. Build: `node ${CLAUDE_PLUGIN_ROOT}/skills/platform-ui-design/scripts/build-kit.mjs --platform ios --out ./dist/kit-ios`
+   (`--check` lints without writing; `--platform all` builds three bundles.)
+2. Diff against the project with `DesignSync` (`list_projects` → `list_files` → per-file
+   `get_file` only where the manifest hash may differ), show the user the add/change/delete
+   table, `finalize_plan`, `write_files` / `delete_files`. Never a wholesale replace.
+3. Report counts and which card to open first.
+
+Kits are the source of truth for components. If a Mode V mockup needs a control the kit
+lacks, add the fragment under `kits/<platform>/components/` first (see
+`design-system-sync.md` for the fragment rules), rebuild, then use it in the artboard.

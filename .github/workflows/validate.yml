@@ -112,3 +112,29 @@ jobs:
           if node "$S" --platform ios --device nonsense --screens Main --out /tmp/ab-bad; then
             echo "::error::expected failure for invalid --device"; exit 1
           fi
+
+      - name: unit tests
+        run: node --test "plugins/platform-ui-design/skills/platform-ui-design/scripts/test/*.test.mjs"
+
+      - name: kits lint clean
+        run: node plugins/platform-ui-design/skills/platform-ui-design/scripts/build-kit.mjs --platform all --check
+
+      - name: kits build and manifest hashes match
+        run: |
+          S=plugins/platform-ui-design/skills/platform-ui-design/scripts/build-kit.mjs
+          node "$S" --platform all --out /tmp/kits
+          for p in ios android windows; do
+            node -e '
+              const fs = require("fs"), crypto = require("crypto"), d = process.argv[1];
+              const m = JSON.parse(fs.readFileSync(d + "/manifest.json", "utf8"));
+              let bad = 0;
+              for (const [p, h] of Object.entries(m)) {
+                const got = crypto.createHash("sha256").update(fs.readFileSync(d + "/" + p)).digest("hex");
+                if (got !== h) { console.error("hash mismatch: " + p); bad = 1; }
+                const first = fs.readFileSync(d + "/" + p, "utf8").split("\n")[0];
+                if (!/^<!-- @dsCard group="[^"]+" /.test(first)) { console.error("bad @dsCard line: " + p); bad = 1; }
+              }
+              if (Object.keys(m).length !== 16) { console.error("expected 16 cards, got " + Object.keys(m).length); bad = 1; }
+              process.exit(bad);
+            ' "/tmp/kits/kit-$p"
+          done
