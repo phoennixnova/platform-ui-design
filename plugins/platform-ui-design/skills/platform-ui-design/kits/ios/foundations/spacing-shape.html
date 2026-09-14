@@ -1,0 +1,62 @@
+<!-- group: Foundations · title: Spacing & shape · subtitle: Margins, 8 pt rhythm, concentric radii · ref: device-metrics.md §Apple chrome heights -->
+<section class="pud-card pud-stack">
+  <div class="pud-stack">
+    <p class="ios-headline">Margins</p>
+    <p class="ios-body">16 pt (compact) / 20 pt (regular) — convention, not current HIG text</p>
+  </div>
+
+  <div class="pud-stack">
+    <p class="ios-headline">8 pt rhythm</p>
+    <p class="ios-body">Spacing steps in multiples of 8 pt</p>
+    <div class="pud-variants">
+      <div class="pud-stack">
+        <div style="width: 8px; height: 32px; background: var(--ios-fill);"></div>
+        <p class="ios-caption1">8</p>
+      </div>
+      <div class="pud-stack">
+        <div style="width: 16px; height: 32px; background: var(--ios-fill);"></div>
+        <p class="ios-caption1">16</p>
+      </div>
+      <div class="pud-stack">
+        <div style="width: 24px; height: 32px; background: var(--ios-fill);"></div>
+        <p class="ios-caption1">24</p>
+      </div>
+      <div class="pud-stack">
+        <div style="width: 32px; height: 32px; background: var(--ios-fill);"></div>
+        <p class="ios-caption1">32</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pud-stack">
+    <p class="ios-headline">Row</p>
+    <div style="height: 44px; display: flex; align-items: center; border-bottom: 1px solid var(--ios-separator);">
+      <p class="ios-body">Standard table row · 44 pt</p>
+    </div>
+  </div>
+
+  <div class="pud-stack">
+    <p class="ios-headline">Radius</p>
+    <p class="ios-body">Base radius 10 pt. Corner rounding is system-applied and concentric with the enclosing shape and the device bezel.</p>
+    <div class="pud-variants">
+      <div class="pud-stack">
+        <div style="width: 64px; height: 64px; border-radius: 10px; background: var(--ios-fill);"></div>
+        <p class="ios-caption1">10</p>
+      </div>
+      <div class="pud-stack">
+        <div style="width: 64px; height: 64px; border-radius: 14px; background: var(--ios-fill);"></div>
+        <p class="ios-caption1">14</p>
+      </div>
+      <div class="pud-stack">
+        <div style="width: 64px; height: 64px; border-radius: 20px; background: var(--ios-fill);"></div>
+        <p class="ios-caption1">20</p>
+      </div>
+      <div class="pud-stack">
+        <div style="width: 64px; height: 64px; border-radius: 28px; background: var(--ios-fill);"></div>
+        <p class="ios-caption1">Continuous</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="ios-footnote pud-note">Margins are a convention carried over from Apple's Design Resources templates, not a number printed in current HIG prose. Row height (44 pt) is the UITableView default; the radius scale and continuous corner are illustrative, matched to the concentric app-icon rounding rule.</p>
+</section>

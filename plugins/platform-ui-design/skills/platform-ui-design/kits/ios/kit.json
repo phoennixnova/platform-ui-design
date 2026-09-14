@@ -1,0 +1,17 @@
+{
+  "platform": "ios",
+  "projectName": "Platform UI · iOS",
+  "defaultWidth": 720,
+  "foundations": [
+    { "id": "colors", "group": "Foundations", "title": "Colors", "subtitle": "Semantic roles, light and dark", "generated": true },
+    { "id": "type", "group": "Foundations", "title": "Type ramp", "subtitle": "11 text styles, Dynamic Type default" },
+    { "id": "spacing-shape", "group": "Foundations", "title": "Spacing & shape", "subtitle": "Margins, 8 pt rhythm, concentric radii" },
+    { "id": "chrome-metrics", "group": "Foundations", "title": "Chrome metrics", "subtitle": "Bars, safe areas, size classes", "width": 393 }
+  ],
+  "components": [
+    { "slot": "top-chrome", "width": 393 }, { "slot": "primary-nav", "width": 393 },
+    { "slot": "button" }, { "slot": "icon-button" }, { "slot": "fab" }, { "slot": "list-row" },
+    { "slot": "text-field" }, { "slot": "toggle" }, { "slot": "selection" }, { "slot": "sheet-dialog" },
+    { "slot": "search" }, { "slot": "feedback" }
+  ]
+}

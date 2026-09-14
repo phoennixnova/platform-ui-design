@@ -1,0 +1,36 @@
+<!-- group: Foundations · title: Chrome metrics · subtitle: Bars, safe areas, size classes · ref: device-metrics.md §Apple chrome heights -->
+<section class="pud-card pud-stack">
+  <div style="width: 393px; height: 852px; display: flex; flex-direction: column; border: 1px solid var(--ios-separator); border-radius: 10px; overflow: hidden;">
+    <div style="height: 59px; display: flex; align-items: center; justify-content: center; background: var(--ios-fill-secondary);">
+      <p class="ios-caption1">Status / safe area · 59</p>
+    </div>
+    <div style="height: 44px; display: flex; align-items: center; justify-content: center; background: var(--ios-fill);">
+      <p class="ios-footnote">Navigation bar · 44</p>
+    </div>
+    <div style="height: 96px; display: flex; align-items: center; justify-content: center; background: var(--ios-fill-secondary);">
+      <p class="ios-footnote">Large title · 96 — convention (unverified)</p>
+    </div>
+    <div style="flex: 1; display: flex; align-items: center; justify-content: center; background: var(--ios-bg-secondary);">
+      <p class="ios-body">Content</p>
+    </div>
+    <div style="height: 49px; display: flex; align-items: center; justify-content: center; background: var(--ios-fill);">
+      <p class="ios-footnote">Tab bar · 49</p>
+    </div>
+    <div style="height: 34px; display: flex; align-items: center; justify-content: center; background: var(--ios-fill-secondary);">
+      <p class="ios-caption2">Home indicator · 34</p>
+    </div>
+  </div>
+
+  <div class="pud-stack">
+    <p class="ios-headline">Size classes</p>
+    <p class="ios-body">Horizontal and vertical are each compact or regular, set by device, window configuration, and multitasking state — not a fixed pixel breakpoint.</p>
+    <div class="pud-stack">
+      <p class="ios-footnote">Compact width, regular height — iPhone portrait</p>
+      <p class="ios-footnote">Compact width, compact height — iPhone landscape (non-Plus/Max)</p>
+      <p class="ios-footnote">Regular width, regular height — iPad, iPhone Plus/Max landscape, Mac Catalyst</p>
+      <p class="ios-footnote">Regular width, compact height — iPad multitasking, some split views</p>
+    </div>
+  </div>
+
+  <p class="ios-footnote pud-note">Frame shown is the iPhone 15/16 base size class (393×852 pt). Large title bar height is a widely cited developer convention, not a single published Apple constant — Apple's own layout guidance no longer publishes numeric chrome heights.</p>
+</section>
