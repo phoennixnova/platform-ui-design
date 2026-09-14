@@ -1,0 +1,21 @@
+<!-- slot: fab · group: Commanding · title: Primary action · subtitle: No FAB — leading accent command · ref: windows-fluent.md §Command surfaces -->
+<section class="pud-card">
+  <div class="win-command-bar" style="width: 1008px">
+    <button class="win-command-bar__cmd win-command-bar__cmd--accent win-body" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+      New
+    </button>
+    <button class="win-command-bar__cmd win-body" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h10l4 4v12H5V4Z"/><path d="M8 4v5h7V4"/><rect x="8" y="14" width="8" height="6"/></svg>
+      Save
+    </button>
+    <button class="win-command-bar__cmd win-body" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>
+      Share
+    </button>
+    <button class="win-command-bar__overflow" type="button" aria-label="More commands">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="12" cy="19" r="1.4"/></svg>
+    </button>
+  </div>
+  <p class="win-body pud-note">Windows has no FAB — the primary action is the first CommandBar command, or an accent button in content. CommandBar height 48; the leading command carries --win-accent / --pud-on-accent to read as the primary action, remaining commands stay standard, overflow "…" holds secondary commands.</p>
+</section>

@@ -1,0 +1,28 @@
+<!-- slot: top-chrome · group: Navigation · title: Title bar & CommandBar · subtitle: Title bar 32 · CommandBar 48 · ref: windows-fluent.md §Title bar -->
+<section class="pud-card pud-stack">
+  <div class="win-chrome" style="width: 1008px">
+    <div class="win-title-bar">
+      <span class="win-title-bar__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg></span>
+      <p class="win-caption win-title-bar__title">Photos</p>
+      <div class="win-title-bar__caption-region"></div>
+    </div>
+    <div class="win-command-bar">
+      <button class="win-command-bar__cmd win-body" type="button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+        New
+      </button>
+      <button class="win-command-bar__cmd win-body" type="button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h10l4 4v12H5V4Z"/><path d="M8 4v5h7V4"/><rect x="8" y="14" width="8" height="6"/></svg>
+        Save
+      </button>
+      <button class="win-command-bar__cmd win-body" type="button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>
+        Share
+      </button>
+      <button class="win-command-bar__overflow" type="button" aria-label="More commands">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="12" cy="19" r="1.4"/></svg>
+      </button>
+    </div>
+  </div>
+  <p class="win-body pud-note">Title bar 32 on --win-bg-mica; app icon 16×16, title in Caption style. The trailing 138px is reserved empty for the three system-drawn caption buttons (minimize/maximize/close) — a custom title bar must not paint into or intercept hit-testing there, or it breaks Snap Layouts. CommandBar 48 on --win-bg-layer holds always-visible primary commands plus an overflow "…" for secondary commands.</p>
+</section>

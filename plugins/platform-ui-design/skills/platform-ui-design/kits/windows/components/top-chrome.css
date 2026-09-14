@@ -1,0 +1,8 @@
+.win-chrome { box-sizing: border-box; display: flex; flex-direction: column; border: 1px solid var(--win-stroke-default); border-radius: 8px; overflow: hidden; }
+.win-title-bar { box-sizing: border-box; height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 12px; background: var(--win-bg-mica); }
+.win-title-bar__icon { flex: 0 0 auto; width: 16px; height: 16px; display: flex; color: var(--win-text-primary); }
+.win-title-bar__title { flex: 1; min-width: 0; color: var(--win-text-primary); }
+.win-title-bar__caption-region { flex: 0 0 auto; width: 138px; height: 32px; }
+.win-command-bar { box-sizing: border-box; height: 48px; display: flex; align-items: center; gap: 4px; padding: 0 12px; background: var(--win-bg-layer); }
+.win-command-bar__cmd { box-sizing: border-box; display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px; border: 0; border-radius: 4px; background: transparent; color: var(--win-text-primary); font-family: inherit; cursor: pointer; }
+.win-command-bar__overflow { box-sizing: border-box; margin-left: auto; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 4px; background: transparent; color: var(--win-text-primary); cursor: pointer; }

@@ -1,0 +1,6 @@
+.win-btn { box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 32px; padding: 0 12px; border: 1px solid transparent; border-radius: 4px; font-family: inherit; background: transparent; color: var(--win-text-primary); cursor: pointer; }
+.win-btn--accent { background: var(--win-accent); color: var(--pud-on-accent); min-width: 120px; }
+.win-btn--standard { background: var(--win-card); border-color: var(--win-stroke-default); min-width: 120px; }
+.win-btn--subtle { background: transparent; }
+.win-btn:disabled { background: color-mix(in srgb, var(--win-text-primary) 4%, transparent); color: var(--win-text-disabled); border-color: transparent; cursor: default; }
+.win-btn:active:not(:disabled) { opacity: 0.85; }

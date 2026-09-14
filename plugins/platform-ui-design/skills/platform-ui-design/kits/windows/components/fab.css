@@ -1,0 +1,4 @@
+.win-command-bar { box-sizing: border-box; height: 48px; display: flex; align-items: center; gap: 4px; padding: 0 12px; background: var(--win-bg-layer); border-radius: 8px; }
+.win-command-bar__cmd { box-sizing: border-box; display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px; border: 0; border-radius: 4px; background: transparent; color: var(--win-text-primary); font-family: inherit; cursor: pointer; }
+.win-command-bar__cmd--accent { background: var(--win-accent); color: var(--pud-on-accent); }
+.win-command-bar__overflow { box-sizing: border-box; margin-left: auto; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 4px; background: transparent; color: var(--win-text-primary); cursor: pointer; }

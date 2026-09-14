@@ -1,0 +1,5 @@
+.win-icon-btn { box-sizing: border-box; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 4px; background: transparent; color: var(--win-text-primary); padding: 0; cursor: pointer; }
+.win-icon-btn--hover, .win-icon-btn--checked { background: var(--win-subtle-secondary); }
+.win-icon-btn--touch { width: 40px; height: 40px; }
+.win-tooltip-demo { display: inline-flex; align-items: center; gap: 8px; }
+.win-tooltip { box-sizing: border-box; padding: 4px 8px; border-radius: 4px; background: var(--win-card); border: 1px solid var(--win-stroke-default); color: var(--win-text-primary); }

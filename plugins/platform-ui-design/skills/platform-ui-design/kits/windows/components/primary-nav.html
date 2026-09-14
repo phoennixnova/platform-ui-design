@@ -1,0 +1,76 @@
+<!-- slot: primary-nav · group: Navigation · title: NavigationView · subtitle: Left · left-compact · top · ref: windows-fluent.md §NavigationView — pane display modes -->
+<section class="pud-card pud-stack">
+  <div class="win-nav-demo" style="width: 1008px">
+    <nav class="win-nav-pane" aria-label="Primary, expanded">
+      <button class="win-nav-pane__hamburger" type="button" aria-label="Collapse navigation">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <div class="win-nav-pane__items">
+        <button class="win-nav-pane__item win-body" type="button">
+          <span class="win-nav-pane__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg></span>
+          Home
+        </button>
+        <button class="win-nav-pane__item win-nav-pane__item--selected win-body" type="button" aria-current="page">
+          <span class="win-nav-pane__pill"></span>
+          <span class="win-nav-pane__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+          Search
+        </button>
+        <button class="win-nav-pane__item win-body" type="button">
+          <span class="win-nav-pane__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          Add item
+        </button>
+        <button class="win-nav-pane__item win-body" type="button">
+          <span class="win-nav-pane__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h10l4 4v12H5V4Z"/><path d="M8 4v5h7V4"/><rect x="8" y="14" width="8" height="6"/></svg></span>
+          Save
+        </button>
+        <button class="win-nav-pane__item win-body" type="button">
+          <span class="win-nav-pane__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg></span>
+          Share
+        </button>
+      </div>
+      <button class="win-nav-pane__item win-nav-pane__settings win-body" type="button">
+        <span class="win-nav-pane__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M3 12h3M18 12h3M4.9 19.1L7 17M17 7l2.1-2.1"/></svg></span>
+        Settings
+      </button>
+    </nav>
+    <nav class="win-nav-compact" aria-label="Primary, compact">
+      <button class="win-nav-compact__item" type="button" aria-label="Expand navigation">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <button class="win-nav-compact__item" type="button" aria-label="Home">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg>
+      </button>
+      <button class="win-nav-compact__item win-nav-compact__item--selected" type="button" aria-label="Search" aria-current="page">
+        <span class="win-nav-compact__pill"></span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </button>
+      <button class="win-nav-compact__item" type="button" aria-label="Add item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <button class="win-nav-compact__item" type="button" aria-label="Save">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h10l4 4v12H5V4Z"/><path d="M8 4v5h7V4"/><rect x="8" y="14" width="8" height="6"/></svg>
+      </button>
+      <button class="win-nav-compact__item" type="button" aria-label="Share">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>
+      </button>
+      <button class="win-nav-compact__item win-nav-compact__settings" type="button" aria-label="Settings">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M3 12h3M18 12h3M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>
+      </button>
+    </nav>
+    <div class="win-nav-demo__content win-body">Content</div>
+  </div>
+
+  <div class="win-nav-top" style="width: 1008px">
+    <button class="win-nav-top__item win-nav-top__hamburger" type="button" aria-label="Menu">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <button class="win-nav-top__item win-body" type="button">Home</button>
+    <button class="win-nav-top__item win-nav-top__item--selected win-body" type="button" aria-current="page">Search</button>
+    <button class="win-nav-top__item win-body" type="button">Share</button>
+    <button class="win-nav-top__settings" type="button" aria-label="Settings">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M3 12h3M18 12h3M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>
+    </button>
+  </div>
+
+  <p class="win-body pud-note">Left mode: 320px pane, 16px icon + label items at 36px height (40px row, 4px gap), Settings pinned to the pane bottom; the selected item gets a --win-subtle-secondary fill and a 3×16 --win-accent pill at the leading edge. LeftCompact narrows the same pane to 48px, icons only, same selection treatment. Top mode swaps to a horizontal strip for ≤5 categories when content height matters more than a side pane. PaneDisplayMode="Auto" switches LeftMinimal → LeftCompact → Left at the 640/1008px breakpoints.</p>
+</section>

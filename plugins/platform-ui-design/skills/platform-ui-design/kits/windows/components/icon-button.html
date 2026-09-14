@@ -1,0 +1,47 @@
+<!-- slot: icon-button · group: Basic input · title: Icon buttons · subtitle: Subtle · hover · tooltip · toggle · ref: windows-fluent.md §Input model — keyboard+mouse first, touch second -->
+<section class="pud-card">
+  <div class="pud-variants">
+    <div class="pud-stack">
+      <button class="win-icon-btn" type="button" aria-label="Settings">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M3 12h3M18 12h3M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>
+      </button>
+      <p class="win-caption">Rest</p>
+    </div>
+    <div class="pud-stack">
+      <button class="win-icon-btn win-icon-btn--hover" type="button" aria-label="Home">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg>
+      </button>
+      <p class="win-caption">Hover</p>
+    </div>
+    <div class="pud-stack">
+      <div class="win-tooltip-demo">
+        <button class="win-icon-btn" type="button" aria-label="Share" aria-describedby="win-icon-btn-tip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>
+        </button>
+        <span class="win-tooltip win-caption" role="tooltip" id="win-icon-btn-tip">Share</span>
+      </div>
+      <p class="win-caption">Tooltip shown</p>
+    </div>
+  </div>
+  <div class="pud-variants">
+    <div class="pud-stack">
+      <button class="win-icon-btn win-icon-btn--toggle" type="button" aria-label="Pin" aria-pressed="false">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.35-9-8.5C1 8 2.5 5 5.5 5c1.8 0 3.3 1 4.5 2.8C11.2 6 12.7 5 14.5 5c3 0 4.5 3 3.5 6.5C19 15.65 12 20 12 20z"/></svg>
+      </button>
+      <p class="win-caption">Toggle unchecked</p>
+    </div>
+    <div class="pud-stack">
+      <button class="win-icon-btn win-icon-btn--toggle win-icon-btn--checked" type="button" aria-label="Unpin" aria-pressed="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 20s-7-4.35-9-8.5C1 8 2.5 5 5.5 5c1.8 0 3.3 1 4.5 2.8C11.2 6 12.7 5 14.5 5c3 0 4.5 3 3.5 6.5C19 15.65 12 20 12 20z"/></svg>
+      </button>
+      <p class="win-caption">Toggle checked</p>
+    </div>
+    <div class="pud-stack">
+      <button class="win-icon-btn win-icon-btn--touch" type="button" aria-label="More options">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="12" cy="19" r="1.4"/></svg>
+      </button>
+      <p class="win-caption">Touch 40</p>
+    </div>
+  </div>
+  <p class="win-body pud-note">32×32 subtle icon button, 16px glyph, 4px radius; a 40×40 variant is used where the surface is touch-reachable. Hover and toggle-checked both use --win-subtle-secondary — Windows is mouse-first, so every custom control needs a documented hover visual. Icon-only buttons need a ToolTipService.ToolTip; shown here as a small --win-card box on a --win-stroke-default border.</p>
+</section>

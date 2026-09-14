@@ -1,0 +1,44 @@
+<!-- slot: list-row · group: Collections · title: List & grid rows · subtitle: ListView · GridView · ref: windows-fluent.md §Controls table (ListView, GridView) -->
+<section class="pud-card">
+  <p class="win-body-strong">Inbox</p>
+  <div class="win-list">
+    <button class="win-list-row" type="button">
+      <span class="win-list-row__leading"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg></span>
+      <span class="win-list-row__text">
+        <span class="win-body">Weekly digest</span>
+        <span class="win-caption win-list-row__secondary">2 hours ago</span>
+      </span>
+    </button>
+    <button class="win-list-row win-list-row--selected" type="button" aria-current="true">
+      <span class="win-list-row__indicator"></span>
+      <span class="win-list-row__leading"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+      <span class="win-list-row__text">
+        <span class="win-body">Search results saved</span>
+        <span class="win-caption win-list-row__secondary">Yesterday</span>
+      </span>
+    </button>
+    <button class="win-list-row" type="button">
+      <span class="win-list-row__leading"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg></span>
+      <span class="win-list-row__text">
+        <span class="win-body">Shared with you</span>
+        <span class="win-caption win-list-row__secondary">Monday</span>
+      </span>
+    </button>
+    <button class="win-list-row" type="button">
+      <span class="win-list-row__leading"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h10l4 4v12H5V4Z"/><path d="M8 4v5h7V4"/><rect x="8" y="14" width="8" height="6"/></svg></span>
+      <span class="win-list-row__text">
+        <span class="win-body">Draft saved</span>
+        <span class="win-caption win-list-row__secondary">Last week</span>
+      </span>
+    </button>
+  </div>
+
+  <p class="win-body-strong">Photos</p>
+  <div class="win-grid">
+    <div class="win-grid__tile"></div>
+    <div class="win-grid__tile"></div>
+    <div class="win-grid__tile"></div>
+  </div>
+
+  <p class="win-body pud-note">ListView row 40 tall, 12px padding; leading 16px icon; the selected row gets a --win-subtle-secondary fill and a 3×16 --win-accent indicator at the leading edge, divider --win-divider inset to the text column. GridView tile 120×120, 8px corner radius, for image-heavy collections that don't suit a text-first ListView.</p>
+</section>
