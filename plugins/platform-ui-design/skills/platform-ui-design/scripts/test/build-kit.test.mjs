@@ -20,6 +20,14 @@ test("bad args exit 2", () => {
   const r = run(["--platform", "ios", "--kits", join(FX, "nope"), "--out", "x"]);
   assert.equal(r.status, 2);
   assert.match(r.stderr, /kit\.json/);
+  const noOut = run(["--platform", "ios", "--kits", join(FX, "kit-good")]);
+  assert.equal(noOut.status, 2, "--out still required for a real build");
+});
+
+test("--check without --out: no --out required, lints, writes nothing", () => {
+  const r = run(["--platform", "ios", "--kits", join(FX, "kit-good"), "--check"]);
+  assert.equal(r.status, 0, r.stderr);
+  assert.match(r.stdout, /lint clean/);
 });
 
 test("good kit builds: cards, manifest, exit 0", () => {

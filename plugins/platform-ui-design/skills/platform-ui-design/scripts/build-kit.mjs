@@ -7,7 +7,8 @@
  * Reads kit.json + fragments, lints them (see lib/kit-lint.mjs), wraps each into a complete
  * @dsCard HTML file (see lib/kit-wrap.mjs), and writes <out>/components, <out>/foundations
  * and <out>/manifest.json ({ path: sha256 }). Writes go to a temp dir and are renamed into
- * place, so <out> is never half-written. --check does everything except the final write.
+ * place, so <out> is never half-written. --check does everything except the final write, and
+ * --out is only required when not --check.
  *
  * Platform discovery for `--platform all`: every subdirectory of the kits root that
  * contains a kit.json, in sorted order — not a hardcoded list, so a new platform (e.g.
@@ -36,9 +37,9 @@ function die(msg, code) { console.error(`error: ${msg}`); process.exit(code); }
 
 const platformArg = arg("platform");
 if (!platformArg || platformArg === true) die("--platform is required (a platform name or all)", 2);
-const outArg = arg("out");
-if (!outArg || outArg === true) die("--out is required", 2);
 const check = arg("check") === true;
+const outArg = arg("out");
+if (!check && (!outArg || outArg === true)) die("--out is required", 2);
 const kitsRoot = resolve(String(arg("kits", join(here, "..", "kits"))));
 
 // Discover which platforms exist under kitsRoot: any subdirectory holding a kit.json.
