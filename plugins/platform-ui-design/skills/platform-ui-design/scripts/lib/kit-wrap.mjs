@@ -46,6 +46,7 @@ export function baseCardCss(platform) {
 .pud-note { opacity: 0.7; }
 .pud-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
 .pud-swatch { display: flex; flex-direction: column; gap: 6px; }
+/* Deliberate neutral chrome for the colors-card swatch outline, not a platform design token — it must stay visible against every swatch fill, including the platform's own tokens. */
 .pud-swatch > i { display: block; height: 40px; border-radius: 8px; border: 1px solid rgba(127,127,127,0.25); }
 .pud-swatch > b { font: 500 12px/16px var(--${p}-font); }
 .pud-swatch > small { font: 400 11px/14px var(--${p}-font); opacity: 0.7; word-break: break-all; }

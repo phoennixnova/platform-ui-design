@@ -80,7 +80,12 @@ export function lintKit({ kit, fragments }) {
   const found = new Map();
   for (const f of fragments) {
     const h = parseHeader(f.html);
-    if (h.ok && h.fields.slot) found.set(h.fields.slot, f.path);
+    if (!h.ok || !h.fields.slot) continue;
+    if (found.has(h.fields.slot)) {
+      findings.push({ file: f.path, line: 1, rule: "slot-duplicate", detail: `slot "${h.fields.slot}" already declared in ${found.get(h.fields.slot)}` });
+      continue;
+    }
+    found.set(h.fields.slot, f.path);
   }
   for (const slot of declared)
     if (!found.has(slot)) findings.push({ file: "kit.json", line: 0, rule: "slot-missing", detail: slot });

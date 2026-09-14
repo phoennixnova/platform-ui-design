@@ -131,6 +131,23 @@ test("--platform all fails when a discovered platform has no TOKENS entry", () =
   rmSync(root, { recursive: true, force: true });
 });
 
+test("--out inside the kits root is refused", () => {
+  const r = run(["--platform", "ios", "--kits", join(FX, "kit-good"), "--out", join(FX, "kit-good")]);
+  assert.equal(r.status, 2);
+  assert.match(r.stderr, /inside the kits root|not a kit bundle/);
+});
+
+test("--out at a non-empty, non-bundle directory is refused and existing files survive", () => {
+  const out = tmp();
+  writeFileSync(join(out, "notes.txt"), "keep me");
+  const r = run(["--platform", "ios", "--kits", join(FX, "kit-good"), "--out", out]);
+  assert.equal(r.status, 2);
+  assert.match(r.stderr, /not a kit bundle/);
+  assert.equal(existsSync(join(out, "notes.txt")), true);
+  assert.equal(readFileSync(join(out, "notes.txt"), "utf8"), "keep me");
+  rmSync(out, { recursive: true, force: true });
+});
+
 test("--platform all in single-kit fixture mode resolves the kit's own platform field", () => {
   const out = join(tmp(), "kit-out");
   const r = run(["--platform", "all", "--kits", join(FX, "kit-good"), "--out", out]);

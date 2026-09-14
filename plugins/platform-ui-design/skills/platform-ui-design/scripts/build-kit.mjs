@@ -22,7 +22,7 @@
  */
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, renameSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { createHash } from "node:crypto";
-import { dirname, join, resolve } from "node:path";
+import { dirname, isAbsolute, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { lintFragment, lintKit, parseHeader } from "./lib/kit-lint.mjs";
 import { wrapCard, colorsCard } from "./lib/kit-wrap.mjs";
@@ -44,6 +44,10 @@ const check = arg("check") === true;
 const outArg = arg("out");
 if (!check && (!outArg || outArg === true)) die("--out is required", 2);
 const kitsRoot = resolve(String(arg("kits", join(here, "..", "kits"))));
+const isAllMode = String(platformArg).toLowerCase() === "all";
+// When --kits points directly at a single kit fixture (it has its own kit.json), that fixture
+// dir is the only "platform" and --out is written to directly, even under --platform all.
+const isFixtureMode = existsSync(join(kitsRoot, "kit.json"));
 
 // Discover which platforms exist under kitsRoot: any subdirectory holding a kit.json.
 // (When --kits points directly at a single kit fixture, that dir itself is the only "platform" —
@@ -137,7 +141,30 @@ function buildPlatform(platform) {
 
 function pick(o, keys) { const r = {}; for (const k of keys) if (o[k] != null) r[k] = o[k]; return r; }
 
+// True when `child` is `parent` itself or nested inside it.
+function pathContains(parent, child) {
+  if (parent === child) return true;
+  const rel = relative(parent, child);
+  return rel !== "" && !rel.startsWith("..") && !isAbsolute(rel);
+}
+
+// Refuse to write --out somewhere that would clobber the kits source tree, the script's own
+// directory, or an existing directory that isn't a previously-built kit bundle.
+function assertSafeOutDir(outDir) {
+  const resolved = resolve(outDir);
+  if (pathContains(kitsRoot, resolved))
+    die(`--out is inside the kits root (${kitsRoot}): ${resolved} — refusing to write there`, 2);
+  if (resolved === here || pathContains(resolved, here))
+    die(`--out equals or contains the script directory (${here}): ${resolved} — refusing to write there`, 2);
+  if (existsSync(resolved)) {
+    const entries = readdirSync(resolved);
+    if (entries.length > 0 && !existsSync(join(resolved, "manifest.json")))
+      die(`refusing to replace ${outDir}: not a kit bundle (no manifest.json)`, 2);
+  }
+}
+
 function writeBundle(outDir, files) {
+  assertSafeOutDir(outDir);
   const parent = dirname(resolve(outDir));
   if (!existsSync(parent)) mkdirSync(parent, { recursive: true });
   const tmp = mkdtempSync(join(parent, ".kit-tmp-"));
@@ -166,14 +193,21 @@ async function renderCheck(files) {
 
 let failed = false;
 for (const platform of platforms) {
-  const outDir = platforms.length > 1 ? join(String(outArg), `kit-${platform}`) : String(outArg);
+  // --platform all always writes each platform to its own <out>/kit-<platform> subdirectory,
+  // even when only one platform is discovered — except single-kit fixture mode, which keeps
+  // writing straight to <out> (there is no ambiguity to disambiguate a subfolder for).
+  const outDir = isAllMode && !isFixtureMode ? join(String(outArg), `kit-${platform}`) : String(outArg);
   const r = buildPlatform(platform);
   if (!r.ok) { failed = true; continue; }
   const cards = [...r.files.keys()].filter(p => p.endsWith(".html")).length;
   if (check) {
     const errs = await renderCheck(r.files);
-    if (errs) failed = true;
-    console.log(`ok: ${platform} — ${cards} cards lint clean (check only, nothing written)`);
+    if (errs) {
+      failed = true;
+      console.log(`render check failed: ${errs} errors`);
+    } else {
+      console.log(`ok: ${platform} — ${cards} cards lint clean (check only, nothing written)`);
+    }
   } else {
     writeBundle(outDir, r.files);
     console.log(`ok: ${platform} — ${cards} cards -> ${outDir}`);

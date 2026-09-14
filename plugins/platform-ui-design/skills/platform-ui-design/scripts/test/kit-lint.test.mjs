@@ -73,3 +73,14 @@ test("lintKit cross-checks slots both ways", () => {
     ["slot-unknown", "fab"],
   ]);
 });
+
+test("lintKit flags a second fragment declaring an already-used slot", () => {
+  const kit = { components: [{ slot: "button" }] };
+  const fragments = [
+    { path: "components/button.html", html: HDR },
+    { path: "components/button2.html", html: HDR },
+  ];
+  const f = lintKit({ kit, fragments });
+  assert.deepEqual(f.map(x => [x.file, x.rule]), [["components/button2.html", "slot-duplicate"]]);
+  assert.match(f[0].detail, /components\/button\.html/);
+});

@@ -54,7 +54,8 @@ node --test "plugins/platform-ui-design/skills/platform-ui-design/scripts/test/*
 
 (the glob form, not a bare directory — Node 22+ resolves a directory argument differently and
 the suite will not be found). The golden test will fail if artboard output changes;
-regenerate the fixtures with the commands in Task 1 step 1 **only** when the change to output
+regenerate the fixtures with the commands in `docs/superpowers/plans/2026-09-13-claude-design-kits.md`
+(Task 1, step 1) **only** when the change to output
 is intended, and say so in the commit message.
 
 Kit fragments: run `node scripts/build-kit.mjs --platform all --check` before opening a PR
