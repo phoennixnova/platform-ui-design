@@ -1,0 +1,12 @@
+.win-progress-bar { box-sizing: border-box; width: 176px; height: 4px; border-radius: 2px; background: var(--win-subtle-secondary); overflow: hidden; position: relative; }
+.win-progress-bar__fill { height: 100%; border-radius: 2px; background: var(--win-accent); }
+.win-progress-bar--indeterminate .win-progress-bar__fill { position: absolute; left: 30%; width: 35%; }
+.win-progress-ring__track { color: var(--win-subtle-secondary); }
+.win-progress-ring__value { color: var(--win-accent); }
+.win-infobar { box-sizing: border-box; position: relative; min-height: 48px; width: 100%; display: flex; align-items: center; gap: 12px; padding: 12px 12px 12px 20px; border-radius: 4px; background: var(--win-card); border: 1px solid var(--win-stroke-default); }
+.win-infobar::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: 4px 0 0 4px; background: var(--win-accent); }
+.win-infobar--error::before { background: var(--win-critical); }
+.win-infobar__icon { flex: 0 0 auto; display: inline-flex; color: var(--win-accent); }
+.win-infobar--error .win-infobar__icon { color: var(--win-critical); }
+.win-infobar__text { flex: 1 1 auto; min-width: 0; margin: 0; color: var(--win-text-primary); }
+.win-infobar__close { flex: 0 0 auto; width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; border: 0; padding: 0; background: transparent; color: var(--win-text-secondary); cursor: pointer; }

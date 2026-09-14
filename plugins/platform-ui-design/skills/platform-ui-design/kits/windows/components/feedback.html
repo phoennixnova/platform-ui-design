@@ -1,0 +1,45 @@
+<!-- slot: feedback · group: Status & info · title: Progress & InfoBar · subtitle: ProgressBar · ProgressRing · InfoBar · ref: windows-fluent.md §Controls table (ProgressBar, ProgressRing, InfoBar) -->
+<section class="pud-card pud-stack">
+  <div class="pud-variants">
+    <div class="pud-stack">
+      <div class="win-progress-bar">
+        <div class="win-progress-bar__fill" style="width: 62%"></div>
+      </div>
+      <p class="win-caption">Determinate</p>
+    </div>
+    <div class="pud-stack">
+      <div class="win-progress-bar win-progress-bar--indeterminate">
+        <div class="win-progress-bar__fill"></div>
+      </div>
+      <p class="win-caption">Indeterminate</p>
+    </div>
+    <div class="pud-stack">
+      <svg class="win-progress-ring" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <circle class="win-progress-ring__track" cx="16" cy="16" r="14.5" stroke="currentColor" stroke-width="3"/>
+        <circle class="win-progress-ring__value" cx="16" cy="16" r="14.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="91.1" stroke-dashoffset="27" transform="rotate(-90 16 16)"/>
+      </svg>
+      <p class="win-caption">ProgressRing</p>
+    </div>
+  </div>
+
+  <div class="win-infobar win-infobar--info">
+    <span class="win-infobar__icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16"/><circle cx="12" cy="7.5" r="0.9" fill="currentColor" stroke="none"/></svg>
+    </span>
+    <p class="win-body win-infobar__text">Your changes have been saved.</p>
+    <button class="win-infobar__close" type="button" aria-label="Close">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="win-infobar win-infobar--error">
+    <span class="win-infobar__icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="13"/><circle cx="12" cy="16.3" r="0.9" fill="currentColor" stroke="none"/></svg>
+    </span>
+    <p class="win-body win-infobar__text">Couldn't connect. Check your network and try again.</p>
+    <button class="win-infobar__close" type="button" aria-label="Close">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+
+  <p class="win-body pud-note">ProgressBar 4 tall, 2px radius, --win-subtle-secondary track; ProgressRing minimum 20×20, shown here at 32 with a 3px --win-accent stroke, for blocking/modal waits — reach for ProgressBar instead when work runs non-blocking in the background. InfoBar is an inline, persistent, non-floating status banner with 4 severities; it stays min 48 tall, 4px radius, --win-card background with a leading severity bar and 16px icon (informational --win-accent, error --win-critical), plus a message and a close affordance — never use ContentDialog for status a user can safely ignore.</p>
+</section>

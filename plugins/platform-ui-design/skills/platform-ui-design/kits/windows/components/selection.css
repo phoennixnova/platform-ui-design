@@ -1,0 +1,15 @@
+.win-radio-group { display: flex; flex-direction: column; gap: 12px; }
+.win-radio { box-sizing: border-box; display: inline-flex; align-items: center; gap: 8px; border: 0; padding: 0; background: transparent; font-family: inherit; color: var(--win-text-primary); cursor: pointer; }
+.win-radio__control { box-sizing: border-box; flex: 0 0 auto; width: 20px; height: 20px; border-radius: 50%; border: 1px solid var(--win-text-secondary); display: flex; align-items: center; justify-content: center; }
+.win-radio__dot { width: 8px; height: 8px; border-radius: 50%; background: transparent; }
+.win-radio--checked .win-radio__control { border-color: var(--win-accent); }
+.win-radio--checked .win-radio__dot { background: var(--win-accent); }
+.win-combo { box-sizing: border-box; width: 100%; height: 32px; display: flex; align-items: center; gap: 8px; padding: 0 10px; border-radius: 4px; background: var(--win-card); border: 1px solid var(--win-stroke-default); color: var(--win-text-primary); font-family: inherit; cursor: pointer; }
+.win-combo__text { flex: 1 1 auto; min-width: 0; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.win-combo__chevron { flex: 0 0 auto; color: var(--win-text-secondary); }
+.win-combo--focus { outline: 2px solid var(--win-text-primary); outline-offset: 1px; }
+.win-combo-open { display: flex; flex-direction: column; }
+.win-combo--open { border-radius: 4px 4px 0 0; }
+.win-combo-popup { box-sizing: border-box; display: flex; flex-direction: column; border: 1px solid var(--win-stroke-default); border-top: 0; border-radius: 0 0 8px 8px; background: var(--win-card); overflow: hidden; }
+.win-combo-row { box-sizing: border-box; width: 100%; height: 36px; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 10px; border: 0; background: transparent; color: var(--win-text-primary); font-family: inherit; text-align: left; cursor: pointer; }
+.win-combo-row--hover, .win-combo-row--selected { background: var(--win-subtle-secondary); }

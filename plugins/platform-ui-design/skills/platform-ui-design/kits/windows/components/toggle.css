@@ -1,0 +1,13 @@
+.win-toggle-rows { display: flex; flex-direction: column; gap: 12px; }
+.win-toggle-row { box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.win-toggle-row__label { margin: 0; color: var(--win-text-primary); }
+.win-toggle-row--disabled .win-toggle-row__label, .win-toggle-row--disabled .win-toggle-control__state { color: var(--win-text-disabled); }
+.win-toggle-control { display: inline-flex; align-items: center; gap: 8px; }
+.win-toggle-control__state { margin: 0; color: var(--win-text-secondary); }
+.win-toggle { box-sizing: border-box; flex: 0 0 auto; display: inline-flex; align-items: center; width: 40px; height: 20px; padding: 0 3px; border-radius: 10px; border: 1px solid var(--win-text-secondary); background: transparent; justify-content: flex-start; }
+.win-toggle__knob { width: 12px; height: 12px; border-radius: 50%; background: var(--win-text-secondary); }
+.win-toggle--on { border-color: var(--win-accent); background: var(--win-accent); justify-content: flex-end; }
+.win-toggle--on .win-toggle__knob { background: var(--pud-on-accent); }
+.win-toggle--hover .win-toggle__knob { width: 14px; height: 14px; }
+.win-toggle--disabled { border-color: var(--win-text-disabled); background: transparent; }
+.win-toggle--disabled .win-toggle__knob { background: var(--win-text-disabled); }

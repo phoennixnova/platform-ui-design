@@ -1,0 +1,31 @@
+<!-- slot: text-field · group: Text · title: Text fields · subtitle: TextBox · focused · disabled · PasswordBox reveal · ref: windows-fluent.md §Controls table (TextBox, PasswordBox) -->
+<section class="pud-card pud-stack">
+  <div class="win-field">
+    <p class="win-body win-field__header">Display name</p>
+    <div class="win-textbox">
+      <p class="win-body win-textbox__text win-textbox__text--placeholder">Enter a name</p>
+    </div>
+  </div>
+  <div class="win-field">
+    <p class="win-body win-field__header">Email address</p>
+    <div class="win-textbox win-textbox--focused">
+      <p class="win-body win-textbox__text">jane@contoso.com</p>
+    </div>
+  </div>
+  <div class="win-field">
+    <p class="win-body win-field__header">Workspace ID</p>
+    <div class="win-textbox win-textbox--disabled">
+      <p class="win-body win-textbox__text">wf-00214</p>
+    </div>
+  </div>
+  <div class="win-field">
+    <p class="win-body win-field__header">Password</p>
+    <div class="win-textbox">
+      <p class="win-body win-textbox__text">••••••••••</p>
+      <button class="win-textbox__reveal" type="button" aria-label="Show password" aria-pressed="false">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+      </button>
+    </div>
+  </div>
+  <p class="win-body pud-note">TextBox 32 tall, 4px radius, padding 0 10, 1px --win-stroke-default border on --win-card; the header label sits 4px above in Body style. Focus swaps the border to a 2px --win-accent bottom stroke without moving the box. PasswordBox masks input and adds a reveal-glyph toggle; disabled dims text to --win-text-disabled and clears the border.</p>
+</section>

@@ -1,0 +1,28 @@
+<!-- slot: sheet-dialog · group: Dialogs & flyouts · title: Content dialog & flyout · subtitle: ContentDialog · Flyout · ref: windows-fluent.md §Controls table (ContentDialog, Flyout) -->
+<section class="pud-card pud-stack">
+  <div class="win-dialog-demo">
+    <div class="win-dialog">
+      <div class="win-dialog__body">
+        <p class="win-subtitle win-dialog__title">Delete this file?</p>
+        <p class="win-body win-dialog__message">This action can't be undone.</p>
+      </div>
+      <div class="win-dialog__footer">
+        <button class="win-dialog__btn win-dialog__btn--accent win-body" type="button">Delete</button>
+        <button class="win-dialog__btn win-dialog__btn--standard win-body" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="win-flyout-demo">
+    <button class="win-dialog__btn win-dialog__btn--standard win-body" type="button" aria-haspopup="true" aria-expanded="true">Options</button>
+    <div class="win-flyout">
+      <p class="win-body win-flyout__text">Rename, duplicate, or delete this item.</p>
+      <div class="win-flyout__actions">
+        <button class="win-dialog__btn win-dialog__btn--subtle win-body" type="button">Rename</button>
+        <button class="win-dialog__btn win-dialog__btn--subtle win-body" type="button">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="win-body pud-note">ContentDialog max 448 wide, 8px radius, 24px body padding, on --win-bg-layer with a --win-stroke-default border; Primary (accent) sits left as the "do it" action, Close (standard) sits right as the safe exit — reserve ContentDialog for must-acknowledge moments, not ignorable info. Flyout is non-modal and light-dismiss: 8px radius, 12px padding, anchored to the control that opened it; shown here docked below its button rather than floating over other content.</p>
+</section>

@@ -1,0 +1,51 @@
+<!-- slot: selection · group: Basic input · title: Radio buttons & combo box · subtitle: RadioButtons · ComboBox closed/open · ref: windows-fluent.md §Controls table (RadioButton, ComboBox) -->
+<section class="pud-card pud-stack">
+  <div class="win-radio-group" role="radiogroup" aria-label="Delivery speed">
+    <button class="win-radio win-body" type="button" role="radio" aria-checked="false">
+      <span class="win-radio__control"><span class="win-radio__dot"></span></span>
+      Standard
+    </button>
+    <button class="win-radio win-radio--checked win-body" type="button" role="radio" aria-checked="true">
+      <span class="win-radio__control"><span class="win-radio__dot"></span></span>
+      Express
+    </button>
+    <button class="win-radio win-body" type="button" role="radio" aria-checked="false">
+      <span class="win-radio__control"><span class="win-radio__dot"></span></span>
+      Overnight
+    </button>
+  </div>
+
+  <div class="pud-variants">
+    <div class="pud-stack">
+      <button class="win-combo win-body" type="button" aria-haspopup="listbox" aria-expanded="false">
+        <span class="win-combo__text">Weekly</span>
+        <svg class="win-combo__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <p class="win-caption">Closed</p>
+    </div>
+    <div class="pud-stack">
+      <button class="win-combo win-combo--focus win-body" type="button" aria-haspopup="listbox" aria-expanded="false">
+        <span class="win-combo__text">Weekly</span>
+        <svg class="win-combo__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <p class="win-caption">Keyboard focus</p>
+    </div>
+  </div>
+
+  <div class="win-combo-open">
+    <button class="win-combo win-combo--open win-body" type="button" aria-haspopup="listbox" aria-expanded="true">
+      <span class="win-combo__text">Monthly</span>
+      <svg class="win-combo__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="win-combo-popup" role="listbox">
+      <button class="win-combo-row win-combo-row--hover win-body" type="button" role="option" aria-selected="false">Weekly</button>
+      <button class="win-combo-row win-combo-row--selected win-body" type="button" role="option" aria-selected="true">
+        Monthly
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+      </button>
+      <button class="win-combo-row win-body" type="button" role="option" aria-selected="false">Quarterly</button>
+    </div>
+  </div>
+
+  <p class="win-body pud-note">RadioButtons: 20px outer ring, 8px dot, checked fills --win-accent — pick this over a ComboBox for 2–3 always-visible choices. ComboBox is 32 tall, 4px radius, matching TextBox; keyboard focus shows WinUI's system focus rect (2px --win-text-primary outline, 1px offset) rather than a custom highlight. The open popup is a shadow-free --win-card surface with an 8px radius and a --win-stroke-default border; rows are 36 tall, hover and selection both use --win-subtle-secondary, and the selected row keeps a trailing check.</p>
+</section>

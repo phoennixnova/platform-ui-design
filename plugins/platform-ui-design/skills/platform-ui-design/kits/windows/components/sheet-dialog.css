@@ -1,0 +1,14 @@
+.win-dialog-demo { box-sizing: border-box; width: 100%; display: flex; justify-content: center; }
+.win-dialog { box-sizing: border-box; width: 100%; max-width: 448px; border-radius: 8px; overflow: hidden; background: var(--win-bg-layer); border: 1px solid var(--win-stroke-default); }
+.win-dialog__body { box-sizing: border-box; padding: 24px; display: flex; flex-direction: column; gap: 8px; }
+.win-dialog__title { margin: 0; color: var(--win-text-primary); }
+.win-dialog__message { margin: 0; color: var(--win-text-secondary); }
+.win-dialog__footer { box-sizing: border-box; display: flex; justify-content: flex-end; gap: 8px; padding: 16px 24px; background: var(--win-card-secondary); }
+.win-dialog__btn { box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; height: 32px; min-width: 120px; padding: 0 12px; border: 1px solid transparent; border-radius: 4px; font-family: inherit; background: transparent; color: var(--win-text-primary); cursor: pointer; }
+.win-dialog__btn--accent { background: var(--win-accent); color: var(--pud-on-accent); }
+.win-dialog__btn--standard { background: var(--win-card); border-color: var(--win-stroke-default); }
+.win-dialog__btn--subtle { min-width: 0; }
+.win-flyout-demo { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.win-flyout { box-sizing: border-box; width: 260px; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; gap: 12px; background: var(--win-card); border: 1px solid var(--win-stroke-default); }
+.win-flyout__text { margin: 0; color: var(--win-text-primary); }
+.win-flyout__actions { display: flex; gap: 8px; }

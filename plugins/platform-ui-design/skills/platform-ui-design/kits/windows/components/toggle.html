@@ -1,0 +1,42 @@
+<!-- slot: toggle · group: Basic input · title: Toggle switch · subtitle: On · off · disabled · ref: windows-fluent.md §Controls table (ToggleSwitch) -->
+<section class="pud-card">
+  <div class="win-toggle-rows">
+    <div class="win-toggle-row">
+      <p class="win-body win-toggle-row__label">Wi-Fi</p>
+      <div class="win-toggle-control">
+        <span class="win-toggle win-toggle--on" role="switch" aria-checked="true">
+          <span class="win-toggle__knob"></span>
+        </span>
+        <p class="win-body win-toggle-control__state">On</p>
+      </div>
+    </div>
+    <div class="win-toggle-row">
+      <p class="win-body win-toggle-row__label">Bluetooth</p>
+      <div class="win-toggle-control">
+        <span class="win-toggle" role="switch" aria-checked="false">
+          <span class="win-toggle__knob"></span>
+        </span>
+        <p class="win-body win-toggle-control__state">Off</p>
+      </div>
+    </div>
+    <div class="win-toggle-row">
+      <p class="win-body win-toggle-row__label">Nearby sharing</p>
+      <div class="win-toggle-control">
+        <span class="win-toggle win-toggle--on win-toggle--hover" role="switch" aria-checked="true">
+          <span class="win-toggle__knob"></span>
+        </span>
+        <p class="win-body win-toggle-control__state">On, hover</p>
+      </div>
+    </div>
+    <div class="win-toggle-row win-toggle-row--disabled">
+      <p class="win-body win-toggle-row__label">Airplane mode</p>
+      <div class="win-toggle-control">
+        <span class="win-toggle win-toggle--disabled" role="switch" aria-checked="false" aria-disabled="true">
+          <span class="win-toggle__knob"></span>
+        </span>
+        <p class="win-body win-toggle-control__state">Off</p>
+      </div>
+    </div>
+  </div>
+  <p class="win-body pud-note">Track 40×20, radius 10, 1px border; on fills --win-accent, off keeps a --win-text-secondary border on a transparent track. Knob 12px, growing to 14px on hover to signal interactivity — on is --pud-on-accent, off is --win-text-secondary. Disabled dims both track and label to --win-text-disabled. ToggleSwitch is for a setting that takes effect immediately; a deferred choice belongs on a CheckBox instead.</p>
+</section>

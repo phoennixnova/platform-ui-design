@@ -1,0 +1,9 @@
+.win-field { display: flex; flex-direction: column; gap: 4px; }
+.win-field__header { margin: 0; color: var(--win-text-primary); }
+.win-textbox { box-sizing: border-box; position: relative; height: 32px; width: 100%; display: flex; align-items: center; gap: 8px; padding: 0 10px; border-radius: 4px; background: var(--win-card); border: 1px solid var(--win-stroke-default); }
+.win-textbox__text { flex: 1 1 auto; min-width: 0; margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--win-text-primary); }
+.win-textbox__text--placeholder { color: var(--win-text-tertiary); }
+.win-textbox--focused { border-bottom: 2px solid var(--win-accent); }
+.win-textbox--disabled { background: color-mix(in srgb, var(--win-text-primary) 4%, transparent); border-color: transparent; }
+.win-textbox--disabled .win-textbox__text { color: var(--win-text-disabled); }
+.win-textbox__reveal { flex: 0 0 auto; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; border: 0; padding: 0; background: transparent; color: var(--win-text-secondary); cursor: pointer; }
