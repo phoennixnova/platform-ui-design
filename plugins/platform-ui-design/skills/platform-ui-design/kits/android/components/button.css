@@ -5,5 +5,6 @@
 .md-btn--outlined { background: transparent; border: 1px solid var(--md-outline); color: var(--md-primary); }
 .md-btn--text { background: transparent; color: var(--md-primary); padding: 0 12px; }
 .md-btn--icon { padding: 0 24px 0 16px; }
-.md-btn:disabled { opacity: 0.38; cursor: default; }
+.md-btn:disabled { background: color-mix(in srgb, var(--md-on-surface) 12%, transparent); color: color-mix(in srgb, var(--md-on-surface) 38%, transparent); border-color: color-mix(in srgb, var(--md-on-surface) 12%, transparent); box-shadow: none; cursor: default; }
+.md-btn--outlined:disabled, .md-btn--text:disabled { background: transparent; }
 .md-btn:active { opacity: 0.85; }
