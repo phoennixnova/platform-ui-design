@@ -1,0 +1,7 @@
+.md-segmented { box-sizing: border-box; width: 100%; display: flex; height: 40px; border: 1px solid var(--md-outline); border-radius: 20px; overflow: hidden; }
+.md-segment { flex: 1 1 0; min-width: 0; display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 100%; border: 0; border-right: 1px solid var(--md-outline); background: transparent; color: var(--md-on-surface); font-family: inherit; padding: 0 12px; cursor: pointer; }
+.md-segment:last-child { border-right: 0; }
+.md-segment--selected { background: var(--md-secondary-container); color: var(--md-on-secondary-container); }
+.md-chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.md-chip { box-sizing: border-box; display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 16px; border-radius: 8px; border: 1px solid var(--md-outline); background: transparent; color: var(--md-on-surface); font-family: inherit; cursor: pointer; }
+.md-chip--selected { background: var(--md-secondary-container); color: var(--md-on-secondary-container); border-color: transparent; }

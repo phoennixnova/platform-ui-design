@@ -1,0 +1,21 @@
+<!-- slot: feedback · group: Feedback · title: Progress & snackbar · subtitle: Linear · Circular · Snackbar with action · ref: android-components.md §2.2 Progress indicators, §2.4 Snackbars -->
+<section class="pud-card pud-stack">
+  <div class="md-feedback-block">
+    <p class="md-label-medium md-feedback-block__label">Linear, determinate</p>
+    <div class="md-progress-bar">
+      <div class="md-progress-bar__fill" style="width: 62%"></div>
+    </div>
+  </div>
+  <div class="md-feedback-block">
+    <p class="md-label-medium md-feedback-block__label">Circular, determinate</p>
+    <svg class="md-progress-circle" width="48" height="48" viewBox="0 0 48 48" fill="none">
+      <circle class="md-progress-circle__track" cx="24" cy="24" r="20" stroke="currentColor" stroke-width="4"/>
+      <circle class="md-progress-circle__value" cx="24" cy="24" r="20" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-dasharray="125.6" stroke-dashoffset="40" transform="rotate(-90 24 24)"/>
+    </svg>
+  </div>
+  <div class="md-snackbar">
+    <p class="md-body-medium md-snackbar__text">Message deleted</p>
+    <button class="md-snackbar__action md-label-large" type="button">Undo</button>
+  </div>
+  <p class="md-body-small pud-note">Linear track 4dp tall, rounded cap, secondaryContainer track; circular 48dp diameter, 4dp stroke, visible track gap between value and track. Snackbar 48dp single-line, 4dp corners, inverseSurface / inverseOnSurface; at most one primaryContainer text action, never a bare "OK"/"Dismiss".</p>
+</section>

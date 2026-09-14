@@ -1,0 +1,9 @@
+.md-switch-rows { display: flex; flex-direction: column; }
+.md-switch-row { box-sizing: border-box; position: relative; min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 16px; }
+.md-switch-row::after { content: ""; position: absolute; left: 16px; right: 0; bottom: 0; height: 1px; background: var(--md-outline-variant); }
+.md-switch-row:last-child::after { content: none; }
+.md-switch { flex: 0 0 auto; box-sizing: border-box; display: inline-flex; align-items: center; width: 52px; height: 32px; border-radius: 16px; border: 2px solid var(--md-outline); background: var(--md-surface-container-highest); justify-content: flex-start; padding: 0 4px; }
+.md-switch__thumb { width: 16px; height: 16px; border-radius: 50%; background: var(--md-outline); display: flex; align-items: center; justify-content: center; color: transparent; }
+.md-switch--on { border-color: var(--md-primary); background: var(--md-primary); justify-content: flex-end; }
+.md-switch--on .md-switch__thumb { width: 24px; height: 24px; background: var(--md-on-primary); color: var(--md-primary); }
+.md-switch--disabled { opacity: 0.38; }

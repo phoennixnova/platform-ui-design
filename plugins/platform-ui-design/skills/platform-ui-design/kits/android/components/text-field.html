@@ -1,0 +1,44 @@
+<!-- slot: text-field · group: Text fields · title: Text fields · subtitle: Filled · outlined · supporting text · error · ref: android-components.md §6.1 Text fields (filled / outlined) -->
+<section class="pud-card pud-stack">
+  <div class="md-field md-field--filled md-field--focused">
+    <div class="md-field__content">
+      <p class="md-body-small md-field__label">Email</p>
+      <p class="md-body-large md-field__text">jane@example.com</p>
+    </div>
+  </div>
+  <div class="md-field-group">
+    <div class="md-field md-field--filled">
+      <div class="md-field__content">
+        <p class="md-body-small md-field__label">Username</p>
+        <p class="md-body-large md-field__text">jane.silva</p>
+      </div>
+    </div>
+    <p class="md-body-small md-field__supporting">This is visible to other members.</p>
+  </div>
+  <div class="md-field md-field--filled">
+    <div class="md-field__content">
+      <p class="md-body-small md-field__label">Password</p>
+      <p class="md-body-large md-field__text">••••••••••</p>
+    </div>
+    <button class="md-field__icon-btn" type="button" aria-label="Clear text">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="md-field-group">
+    <div class="md-field md-field--filled md-field--error">
+      <div class="md-field__content">
+        <p class="md-body-small md-field__label">Email</p>
+        <p class="md-body-large md-field__text">not-an-email</p>
+      </div>
+      <span class="md-field__icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="13"/><circle cx="12" cy="16.3" r="0.9" fill="currentColor" stroke="none"/></svg>
+      </span>
+    </div>
+    <p class="md-body-small md-field__error">Enter a valid email address.</p>
+  </div>
+  <div class="md-field md-field--outlined">
+    <span class="md-field__outline-label md-body-small">Card number</span>
+    <p class="md-body-large md-field__text md-field__text--outlined">4111 1111 1111 1111</p>
+  </div>
+  <p class="md-body-small pud-note">Filled 56dp, 4dp top corners, surfaceContainerHighest; focused indicator 2dp primary bottom border, error swaps indicator/label/supporting text to error. Outlined 56dp, 4dp corners all round, 1dp outline border, label sits in a gap cut into the border. Pick one variant per form — never mix filled and outlined.</p>
+</section>

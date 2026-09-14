@@ -1,0 +1,17 @@
+.md-field { box-sizing: border-box; width: 100%; min-height: 56px; display: flex; align-items: center; gap: 8px; padding: 0 16px; }
+.md-field--filled { border-radius: 4px 4px 0 0; background: var(--md-surface-container-highest); border-bottom: 1px solid var(--md-on-surface-variant); }
+.md-field--filled.md-field--focused { border-bottom: 2px solid var(--md-primary); }
+.md-field--filled.md-field--error { border-bottom-color: var(--md-error); }
+.md-field__content { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.md-field__label { margin: 0; color: var(--md-on-surface-variant); }
+.md-field--focused .md-field__label { color: var(--md-primary); }
+.md-field--error .md-field__label { color: var(--md-error); }
+.md-field__text { margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--md-on-surface); }
+.md-field-group { display: flex; flex-direction: column; gap: 4px; }
+.md-field__supporting { margin: 0 16px; color: var(--md-on-surface-variant); }
+.md-field__error { margin: 0 16px; color: var(--md-error); }
+.md-field__icon-btn { flex: 0 0 auto; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border: 0; background: transparent; color: var(--md-on-surface-variant); padding: 0; cursor: pointer; }
+.md-field__icon { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; color: var(--md-error); }
+.md-field--outlined { position: relative; box-sizing: border-box; border: 1px solid var(--md-outline); border-radius: 4px; background: transparent; }
+.md-field__outline-label { position: absolute; top: -8px; left: 12px; padding: 0 4px; background: var(--md-surface); color: var(--md-on-surface-variant); }
+.md-field__text--outlined { color: var(--md-on-surface); }
