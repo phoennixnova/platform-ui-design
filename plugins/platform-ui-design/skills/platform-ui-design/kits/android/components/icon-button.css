@@ -1,0 +1,7 @@
+.md-icon-btn { width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; border: 0; background: transparent; padding: 0; cursor: pointer; color: var(--md-on-surface-variant); }
+.md-icon-btn__visual { width: 40px; height: 40px; border-radius: 20px; display: flex; align-items: center; justify-content: center; }
+.md-icon-btn--filled .md-icon-btn__visual { background: var(--md-primary); color: var(--md-on-primary); }
+.md-icon-btn--tonal .md-icon-btn__visual { background: var(--md-secondary-container); color: var(--md-on-secondary-container); }
+.md-icon-btn--outlined .md-icon-btn__visual { border: 1px solid var(--md-outline); }
+.md-icon-btn--selected .md-icon-btn__visual { background: var(--md-primary); color: var(--md-on-primary); }
+.md-icon-btn:active { opacity: 0.8; }

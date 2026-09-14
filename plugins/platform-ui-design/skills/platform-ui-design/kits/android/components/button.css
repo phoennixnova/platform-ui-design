@@ -1,0 +1,9 @@
+.md-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 40px; padding: 0 24px; border: 0; border-radius: 20px; font-family: inherit; background: transparent; color: var(--md-primary); cursor: pointer; }
+.md-btn--filled { background: var(--md-primary); color: var(--md-on-primary); }
+.md-btn--tonal { background: var(--md-secondary-container); color: var(--md-on-secondary-container); }
+.md-btn--elevated { background: var(--md-surface-container-low); color: var(--md-primary); box-shadow: 0 1px 3px var(--md-scrim); }
+.md-btn--outlined { background: transparent; border: 1px solid var(--md-outline); color: var(--md-primary); }
+.md-btn--text { background: transparent; color: var(--md-primary); padding: 0 12px; }
+.md-btn--icon { padding: 0 24px 0 16px; }
+.md-btn:disabled { opacity: 0.38; cursor: default; }
+.md-btn:active { opacity: 0.85; }

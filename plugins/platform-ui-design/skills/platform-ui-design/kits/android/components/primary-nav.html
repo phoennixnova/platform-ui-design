@@ -1,0 +1,50 @@
+<!-- slot: primary-nav · group: Navigation · title: Primary navigation · subtitle: Nav bar (2nd active) · nav rail with FAB · ref: android-components.md §4.2 Navigation bar, §4.4 Navigation rail -->
+<section class="pud-card pud-stack">
+  <div class="md-nav-bar" style="width: 412px">
+    <button class="md-nav-bar__item" type="button">
+      <span class="md-nav-bar__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg></span>
+      <span class="md-label-medium">Home</span>
+    </button>
+    <button class="md-nav-bar__item md-nav-bar__item--active" type="button" aria-current="page">
+      <span class="md-nav-bar__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+      <span class="md-label-medium">Search</span>
+    </button>
+    <button class="md-nav-bar__item" type="button">
+      <span class="md-nav-bar__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.35-9-8.5C1 8 2.5 5 5.5 5c1.8 0 3.3 1 4.5 2.8C11.2 6 12.7 5 14.5 5c3 0 4.5 3 3.5 6.5C19 15.65 12 20 12 20z"/></svg></span>
+      <span class="md-label-medium">Favorites</span>
+    </button>
+    <button class="md-nav-bar__item" type="button">
+      <span class="md-nav-bar__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span>
+      <span class="md-label-medium">Profile</span>
+    </button>
+  </div>
+
+  <div class="md-nav-rail-demo" style="width: 412px">
+    <div class="md-nav-rail">
+      <button class="md-nav-rail__fab" type="button" aria-label="Add">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <button class="md-nav-rail__item" type="button">
+        <span class="md-nav-rail__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg></span>
+        <span class="md-label-medium">Home</span>
+      </button>
+      <button class="md-nav-rail__item md-nav-rail__item--active" type="button" aria-current="page">
+        <span class="md-nav-rail__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+        <span class="md-label-medium">Search</span>
+      </button>
+      <button class="md-nav-rail__item" type="button">
+        <span class="md-nav-rail__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.35-9-8.5C1 8 2.5 5 5.5 5c1.8 0 3.3 1 4.5 2.8C11.2 6 12.7 5 14.5 5c3 0 4.5 3 3.5 6.5C19 15.65 12 20 12 20z"/></svg></span>
+        <span class="md-label-medium">Favorites</span>
+      </button>
+      <button class="md-nav-rail__item" type="button">
+        <span class="md-nav-rail__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span>
+        <span class="md-label-medium">Profile</span>
+      </button>
+    </div>
+    <div class="md-nav-rail__content">
+      <p class="md-body-medium">Content</p>
+    </div>
+  </div>
+
+  <p class="md-body-small pud-note">Nav bar 80dp tall, equal-width items, 64×32dp pill indicator in secondaryContainer. Nav rail 80dp wide for medium/expanded windows, FAB in the header slot, same 64×32dp indicator; icon 24dp, label labelMedium.</p>
+</section>

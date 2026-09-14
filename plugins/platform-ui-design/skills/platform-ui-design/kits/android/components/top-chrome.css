@@ -1,0 +1,10 @@
+.md-top-chrome { box-sizing: border-box; height: 64px; display: flex; align-items: center; gap: 4px; padding: 0 4px; background: var(--md-surface); }
+.md-top-chrome__icon-btn { flex: 0 0 auto; width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 24px; background: transparent; color: var(--md-on-surface-variant); padding: 0; cursor: pointer; }
+.md-top-chrome__title { flex: 1; min-width: 0; margin: 0 4px; color: var(--md-on-surface); }
+.md-top-chrome__actions { flex: 0 0 auto; display: flex; align-items: center; }
+.md-top-chrome--center { display: grid; grid-template-columns: 48px 1fr 48px; align-items: center; }
+.md-top-chrome--center .md-top-chrome__title { text-align: center; }
+.md-top-chrome--scrolled { background: var(--md-surface-container); }
+.md-top-chrome-medium { box-sizing: border-box; height: 112px; display: flex; flex-direction: column; background: var(--md-surface); }
+.md-top-chrome-medium__bar { flex: 0 0 auto; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; }
+.md-top-chrome-medium__title { flex: 1; margin: 0; padding: 0 16px 12px; display: flex; align-items: flex-end; color: var(--md-on-surface); }

@@ -1,0 +1,14 @@
+.md-nav-bar { box-sizing: border-box; height: 80px; display: flex; background: var(--md-surface-container); }
+.md-nav-bar__item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; border: 0; background: transparent; color: var(--md-on-surface-variant); font-family: inherit; padding: 0; cursor: pointer; }
+.md-nav-bar__icon { width: 64px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 16px; }
+.md-nav-bar__item--active { color: var(--md-on-surface); }
+.md-nav-bar__item--active .md-nav-bar__icon { background: var(--md-secondary-container); color: var(--md-on-secondary-container); }
+
+.md-nav-rail-demo { box-sizing: border-box; display: flex; height: 320px; border: 1px solid var(--md-outline-variant); border-radius: 12px; overflow: hidden; }
+.md-nav-rail { flex: 0 0 auto; width: 80px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 16px 0; background: var(--md-surface-container); }
+.md-nav-rail__fab { width: 56px; height: 56px; margin-bottom: 8px; border: 0; border-radius: 16px; background: var(--md-primary-container); color: var(--md-on-primary-container); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.md-nav-rail__item { width: 56px; height: 56px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; border: 0; background: transparent; color: var(--md-on-surface-variant); font-family: inherit; padding: 0; cursor: pointer; }
+.md-nav-rail__icon { width: 56px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 16px; }
+.md-nav-rail__item--active { color: var(--md-on-surface); }
+.md-nav-rail__item--active .md-nav-rail__icon { background: var(--md-secondary-container); color: var(--md-on-secondary-container); }
+.md-nav-rail__content { flex: 1; display: flex; align-items: center; justify-content: center; background: var(--md-surface); color: var(--md-on-surface-variant); }

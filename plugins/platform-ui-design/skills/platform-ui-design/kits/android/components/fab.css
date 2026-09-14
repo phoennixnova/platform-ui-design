@@ -1,0 +1,5 @@
+.md-fab { display: inline-flex; align-items: center; justify-content: center; gap: 12px; width: 56px; height: 56px; border: 0; border-radius: 16px; background: var(--md-primary-container); color: var(--md-on-primary-container); font-family: inherit; cursor: pointer; }
+.md-fab--small { width: 40px; height: 40px; border-radius: 12px; }
+.md-fab--large { width: 96px; height: 96px; border-radius: 28px; }
+.md-fab--extended { width: auto; padding: 0 20px; }
+.md-fab:active { opacity: 0.9; }

@@ -3,7 +3,7 @@
   "projectName": "Platform UI · Android",
   "defaultWidth": 360,
   "foundations": [
-    { "id": "colors", "group": "Foundations", "title": "Colors", "subtitle": "48 color roles, light and dark", "generated": true },
+    { "id": "colors", "group": "Foundations", "title": "Colors", "subtitle": "Semantic roles, light and dark", "generated": true },
     { "id": "type", "group": "Foundations", "title": "Type ramp", "subtitle": "15 styles, Material 3 type scale" },
     { "id": "spacing-shape", "group": "Foundations", "title": "Spacing & shape", "subtitle": "4 dp grid, shape scale 4/8/12/16/28" },
     { "id": "chrome-metrics", "group": "Foundations", "title": "Chrome metrics", "subtitle": "Bars, insets, window size classes", "width": 412 }
