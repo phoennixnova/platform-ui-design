@@ -27,9 +27,14 @@ from Apple or Google documentation and cited there.
 Answer these four before writing anything. Ask the user only what you genuinely cannot infer;
 one AskUserQuestion round, not an interrogation.
 
-1. **Platform(s)** — Apple, Android, Windows, or a combination. For more than one, read
-   `references/cross-platform.md` first (and the delta table in `references/windows-fluent.md`
-   if Windows is in scope); they decide what is shared and what forks.
+1. **Platform(s)** — Apple, Android, Windows, or a combination — **only the ones the product
+   ships or is actively building.** A platform the project calls "future" or has no build
+   target for is out of scope; say so in one line and do not design or audit for it. For more
+   than one, read `references/cross-platform.md` first (and the delta table in
+   `references/windows-fluent.md` if Windows is in scope); they decide what is shared and what
+   forks. Note the **surface type** too: native (SwiftUI / Compose / WinUI) or web-in-shell
+   (Tauri, Electron, Capacitor, PWA) — the native component catalogues do not apply to a
+   web-in-shell surface, only the metrics, insets, a11y and input rules.
 2. **Form factor(s)** — phone / tablet / foldable / desktop / watch / TV / XR. This drives
    breakpoints and navigation chrome more than anything else. Windows and macOS are
    keyboard-and-mouse first with touch secondary — the inverse of mobile; that changes hover
@@ -158,10 +163,21 @@ per-screen anatomy with real numbers (margins, control heights, type styles, col
 states (loading, empty, error, offline, permission-denied) → motion → accessibility notes →
 token table. Cite the guideline behind any non-obvious rule.
 
-For a **critique or audit**, work through `references/review-rubric.md` in order. Report
-findings ranked by severity, each with: what is wrong, which guideline it violates (with the
-URL from the reference file), and the concrete fix. Do not pad with praise. If you are given a
+For a **critique or audit**, work through `references/review-rubric.md` in order, **starting
+with Pass 0** (scope, surface type, inventory, recorded deviations, which references to load).
+Passes 1–8 apply only to what Pass 0 put in scope: no findings about controls the product
+does not have, platforms it does not ship, or deviations it has documented. Report findings
+ranked by severity, each with: what is wrong, which guideline it violates (with the URL from
+the reference file), and the concrete fix. Do not pad with praise. If you are given a
 screenshot only, say what you cannot verify from pixels alone.
+
+Scale: **one reviewer, one pass per in-scope platform, in this session.** The rubric's
+evidence rule (cite file:line or the screenshot) is the verification step. Do not fan an
+audit out into multi-agent refute / judge / synthesis pipelines unless the user asks for one —
+a three-platform review of a two-platform app with 267 agents (audits, 35 refuters, judges,
+synthesis) cost five hours, 17 M output tokens and 2.3 B input tokens, and its 16 survivors were
+the findings a single source-reading pass with Pass 0 produces — a third of them were about a
+platform the app does not ship on.
 
 ## 6. Mode V — visual mockups via Claude Design
 

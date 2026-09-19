@@ -19,6 +19,46 @@ state coverage — say so rather than guessing. From **source** you can verify e
 
 ---
 
+## Pass 0 — Scope and inventory (no findings; decides what the other passes may touch)
+
+Do this before reading any other reference file. Its output is a short block at the top of the
+review; everything in Passes 1–8 is conditional on it.
+
+1. **Platforms in scope.** Only platforms the product ships or is actively building. Evidence:
+   the project's CLAUDE.md / README / build config — `src-tauri/gen/<platform>`, `*.xcodeproj`,
+   `AndroidManifest.xml`, `Package.appxmanifest`, `capacitor.config.*`, `app.json`. A platform
+   described as "future", "later", "not yet scaffolded", or with no build target is **out of
+   scope**: name it in one line ("Android: future target, not audited") and do not audit it.
+2. **Surface type.** Native (SwiftUI / UIKit / Compose / WinUI) or web-in-shell (Tauri,
+   Electron, Capacitor, PWA, plain browser). For web-in-shell surfaces the platform's *native
+   component catalogue does not apply*: absence of a FAB, navigation rail, tab bar,
+   NavigationView, CommandBar, Mica, ContentDialog, SF Symbols / Material Symbols / Segoe icons
+   is not a finding. What still applies: safe areas and insets, hit targets, back handling,
+   text scaling, contrast, keyboard access, window-size behaviour, focus order, motion.
+3. **Inventory.** List the screens and control types that actually exist — from the routes,
+   component directory, or the screenshots supplied. Passes 1–8 apply only to inventory items.
+   A platform component the product lacks is a finding *only* when the product needs that
+   function and has no equivalent of its own.
+4. **Recorded deviations.** Read CLAUDE.md, the design README and any decision log the project
+   keeps. A deliberate, documented deviation is reported once under "Deviations noted", never
+   as a P0–P3 finding.
+5. **References to load.** From 1–2, name the reference files this review needs and read only
+   those. A web-in-shell review on Windows + iPad needs `accessibility.md`, `device-metrics.md`
+   and the foundations files for those two platforms — not the component catalogues.
+
+Output block:
+
+```
+Scope: Windows (Tauri desktop), iPadOS (Tauri) — in scope. Android — future target, not audited.
+Surface: web-in-shell (React + Tauri 2). Native component catalogues not applied.
+Inventory: 3 pages, ribbon (14 sections), popovers, context menu, pull-down, 2 dialogs, tool rail.
+Deviations noted: design README §3.2 (popovers stay open on choose), §5 platform-exception table.
+References: accessibility.md, device-metrics.md, apple-foundations.md, windows-fluent.md.
+```
+
+If Pass 0 removes a platform or a whole pass, say so in one line and move on. Do not run a
+pass "for completeness" on something the inventory does not contain.
+
 ## Pass 1 — Platform idiom (P0/P1)
 
 - Is the navigation model the platform's? Tab bar / nav stack / split view on Apple;
