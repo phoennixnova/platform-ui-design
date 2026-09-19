@@ -59,6 +59,49 @@ References: accessibility.md, device-metrics.md, apple-foundations.md, windows-f
 If Pass 0 removes a platform or a whole pass, say so in one line and move on. Do not run a
 pass "for completeness" on something the inventory does not contain.
 
+## Interview — triage, then ask, then go deep
+
+An audit runs in three stages. Stage 1 and 2 together should cost one or two turns.
+
+**Stage 1 — Triage.** Pass 0, plus a skim of the inventory that yields one line per design
+area below: a *candidate* ("Layout: popovers unclamped below 820 px") or "nothing observed".
+No file:line evidence yet. Read the project's known-issues / plan document if it has one and
+mark candidates already filed there as *known*. If `docs/ui-review-scope.md` exists, read it
+and skip straight to the confirmation question in Stage 2.
+
+**Stage 2 — One `AskUserQuestion` round, multi-select where marked.**
+
+| # | Question | Options |
+|---|---|---|
+| 1 | Which pages / control groups? *(multi)* | the inventory, grouped; "everything" |
+| 2 | Which design areas? *(multi)* | Platform idiom (P1) · Sizes & hit targets (P2) · Color, theming & contrast (P3 + the contrast half of P6) · Layout & window sizes (P4) · States & feedback (P5, P7) · Accessibility — semantics, focus, keyboard, screen reader (P6) · Motion (P7) · Copy & content (P8). Default = areas with a candidate. |
+| 3 | Anything to leave out? *(multi)* | each candidate, each *known* item, each documented deviation |
+| 4 | Depth | Findings only · Findings + fixes · Findings + fixes + tests |
+
+When a scope file exists, ask one question instead: "Last time: <3-line summary>. Reuse, or
+adjust?" — and only fall back to the four questions on "adjust".
+
+**Stage 3 — Deep pass**, only on the chosen pages × areas. File:line or screenshot evidence
+for every finding; references loaded by *section* (`grep -n "^##" references/<file>.md`, then
+read the named sections); screenshots only for Layout at the in-scope breakpoints.
+
+**Persist.** Write the answers to `docs/ui-review-scope.md` in the project:
+
+```markdown
+# UI review scope
+Updated: 2026-09-19
+Platforms: Windows (Tauri), iPadOS (Tauri). Out: Android (future).
+Surface: web-in-shell.
+Pages / controls: Design page — Text ribbon section, Move popover, tool rail.
+Areas: Layout & window sizes, Accessibility, Sizes & hit targets.
+Excluded: loop-command popover placement (deliberate, README §3.2); Space-key activation (filed, Plan §3).
+Depth: findings + fixes.
+```
+
+Write the findings to `docs/ui-review-<YYYY-MM-DD>.md` in the Output shape below; the chat
+reply is the Summary plus the P0/P1 titles. A rerun on the same scope diffs against the last
+file and reports only new, changed and resolved items.
+
 ## Pass 1 — Platform idiom (P0/P1)
 
 - Is the navigation model the platform's? Tab bar / nav stack / split view on Apple;

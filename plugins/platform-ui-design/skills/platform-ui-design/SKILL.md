@@ -163,13 +163,18 @@ per-screen anatomy with real numbers (margins, control heights, type styles, col
 states (loading, empty, error, offline, permission-denied) → motion → accessibility notes →
 token table. Cite the guideline behind any non-obvious rule.
 
-For a **critique or audit**, work through `references/review-rubric.md` in order, **starting
-with Pass 0** (scope, surface type, inventory, recorded deviations, which references to load).
-Passes 1–8 apply only to what Pass 0 put in scope: no findings about controls the product
-does not have, platforms it does not ship, or deviations it has documented. Report findings
-ranked by severity, each with: what is wrong, which guideline it violates (with the URL from
-the reference file), and the concrete fix. Do not pad with praise. If you are given a
-screenshot only, say what you cannot verify from pixels alone.
+For a **critique or audit**, follow the three stages in `references/review-rubric.md`:
+**Pass 0 + triage** (scope, surface type, inventory, known issues, one candidate line per
+design area) → **one interview round** (which pages/controls, which design areas — idiom,
+sizes, color & contrast, layout, states, accessibility, motion, copy — what to leave out, how
+deep) → **deep pass on the chosen scope only**. Passes 1–8 apply only to what the interview
+put in scope: no findings about controls the product does not have, platforms it does not
+ship, areas the user did not pick, or deviations it has documented. Persist the answers to
+`docs/ui-review-scope.md` so the next run asks one question ("reuse or adjust?"), and write
+findings to `docs/ui-review-<date>.md`. Report findings ranked by severity, each with: what is
+wrong, which guideline it violates (with the URL from the reference file), and the concrete
+fix. Do not pad with praise. If you are given a screenshot only, say what you cannot verify
+from pixels alone.
 
 Scale: **one reviewer, one pass per in-scope platform, in this session.** The rubric's
 evidence rule (cite file:line or the screenshot) is the verification step. Do not fan an

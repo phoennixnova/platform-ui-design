@@ -30,7 +30,7 @@ The skill loads on its own when a request involves platform UI work.
 |---|---|
 | **Native code** | SwiftUI / UIKit / AppKit, Jetpack Compose, WinUI 3 / XAML |
 | **Cross-platform code** | React Native, Flutter, web — with the platform forks in the right places |
-| **Spec & critique** | Written specs and redlines; severity-ranked audits against an 8-pass rubric |
+| **Spec & critique** | Written specs and redlines; audits scoped by a short interview (pages, design areas, exclusions) and ranked by severity against an 8-pass rubric — only for platforms and controls the app actually has |
 | **Visual mockups** | Platform-correct artboards published to a Claude Design canvas |
 
 ### Non-negotiables it enforces
